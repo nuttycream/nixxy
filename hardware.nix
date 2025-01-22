@@ -10,6 +10,12 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
+
+  # from cachyos
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  services.scx.enable = true;
+  services.scx.scheduler = "scx_lavd";
+
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
