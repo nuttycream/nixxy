@@ -4,7 +4,7 @@
   home.username = "j";
   home.homeDirectory = "/home/j";
 
-  home.packages with pkgs; [
+  home.packages = with pkgs; [
     # archives
     zip
     unzip
