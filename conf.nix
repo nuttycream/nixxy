@@ -90,6 +90,8 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  programs.foot.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nix = {

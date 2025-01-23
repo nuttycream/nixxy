@@ -5,6 +5,8 @@
   home.homeDirectory = "/home/j";
 
   home.packages = with pkgs; [
+    fuzzel
+    dunst
     # archives
     zip
     unzip
@@ -25,6 +27,9 @@
     userName = "nuttyCream";
     userEmail = "issanutty@gmail.com";
   };
+
+  programs.fuzzel.enable = true;
+  programs.dunst.enable = true;
 
   home.stateVersion = "24.11";
 
