@@ -29,7 +29,7 @@
   };
 
   programs.fuzzel.enable = true;
-  programs.dunst.enable = true;
+  services.dunst.enable = true;
 
   home.stateVersion = "24.11";
 
