@@ -59,7 +59,7 @@
   services.printing.enable = true;
   # https://nixos.wiki/wiki/Printing#Enable_autodiscovery_of_network_printers
   services.avahi = {
-    enable = true;
+    enable = false;
     nssmdns4 = true;
     openFirewall = true;
   };
