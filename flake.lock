@@ -260,7 +260,8 @@
         "home-manager": "home-manager_2",
         "niri": "niri",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-stable": "nixpkgs-stable_2"
+        "nixpkgs-stable": "nixpkgs-stable_2",
+        "zen-browser": "zen-browser"
       }
     },
     "rust-analyzer-src": {
@@ -310,6 +311,26 @@
       "original": {
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1737656612,
+        "narHash": "sha256-Lfi7TNgkEEz1mbTpwltdzUfTdZ1Ez1F9M9a7NRU3K3I=",
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "rev": "654bb9ee35d1116f401c72f545bf307fb62bfb3c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

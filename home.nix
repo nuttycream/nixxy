@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, inputs, ... }: 
 
 {
   home.username = "j";
@@ -20,6 +20,8 @@
     lm_sensors
     pciutils
     usbutils
+
+    inputs.zen-browser.packages.x86_64-linux.twilight
   ];
 
   programs.git = {
