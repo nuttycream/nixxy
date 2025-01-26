@@ -23,6 +23,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.powersave = true;
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -46,8 +47,9 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.ly.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.power-profiles-daemon.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -93,9 +95,6 @@
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   programs.foot.enable = true;
 
   # Allow unfree packages
@@ -113,7 +112,9 @@
      neovim
      git
      gh
+     networkmanagerapplet
   ];
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
