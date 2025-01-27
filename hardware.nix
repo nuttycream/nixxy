@@ -19,6 +19,12 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  # temp amd input lag fix framework 13
+  # https://community.frame.work/t/keyboard-is-laggy-on-linux-6-12-only/61736/5
+  boot.kernelParams = [
+    "amdgpu.dcdebugmask=0x10"
+  ];
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/ae99757b-283c-4ee1-be21-f219d9909a1d";
       fsType = "ext4";
