@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -46,8 +46,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
   services.displayManager.ly.enable = true;
+
+  # Enable the GNOME Desktop Environment.
   services.xserver.desktopManager.gnome.enable = true;
   services.power-profiles-daemon.enable = true;
 
@@ -104,6 +105,11 @@
     settings.experimental-features = [ "nix-command" "flakes" ];
   };
 
+  # niri
+  programs.niri.enable = true;
+  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+  programs.niri.package = pkgs.niri-unstable;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -113,6 +119,12 @@
      git
      gh
      networkmanagerapplet
+     wl-clipboard
+     wayland-utils
+     libsecret
+     cage
+     xwayland-satellite-unstable
+     swaybg
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

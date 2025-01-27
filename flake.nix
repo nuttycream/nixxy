@@ -31,9 +31,11 @@
     nixosConfigurations = {
       nixxy = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./conf.nix
           inputs.chaotic.nixosModules.default
+          inputs.niri.nixosModules.niri
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
