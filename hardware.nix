@@ -12,7 +12,7 @@
   boot.initrd.kernelModules = [ ];
 
   # from cachyos
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-rc;
   services.scx.enable = true;
   services.scx.scheduler = "scx_lavd";
 
