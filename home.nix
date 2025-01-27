@@ -7,6 +7,7 @@
   home.packages = with pkgs; [
     fuzzel
     dunst
+    waybar
     # archives
     zip
     unzip
@@ -28,6 +29,15 @@
     enable = true;
     userName = "nuttyCream";
     userEmail = "issanutty@gmail.com";
+  };
+
+  programs.foot = {
+    enable = true;
+    settings = {
+      colors = {
+        alpha = 0;
+      };
+    };
   };
 
   programs.fuzzel.enable = true;
