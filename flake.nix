@@ -10,6 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,10 +25,11 @@
        url = "github:0xc000022070/zen-browser-flake";
        inputs.nixpkgs.follows = "nixpkgs";
      };
-
   };
 
-  outputs = { self, nixpkgs, home-manager, niri, zen-browser, ... }@inputs: {
+  outputs = { 
+    self, nixpkgs, home-manager, niri, zen-browser, ... 
+  } @ inputs: {
     nixosConfigurations = {
       nixxy = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

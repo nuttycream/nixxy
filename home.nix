@@ -43,6 +43,10 @@
   programs.fuzzel.enable = true;
   services.dunst.enable = true;
 
+  programs.waybar = {
+    enable = true;
+  };
+
   home.stateVersion = "24.11";
 
   programs.home-manager.enable = true;
