@@ -108,6 +108,10 @@
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
   programs.niri.package = pkgs.niri-unstable;
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.geist-mono
+  ];
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
