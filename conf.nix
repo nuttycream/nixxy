@@ -90,7 +90,7 @@
   users.users.j = {
     isNormalUser = true;
     description = "j";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video"];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -108,6 +108,7 @@
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
   programs.niri.package = pkgs.niri-unstable;
 
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -123,6 +124,7 @@
      cage
      xwayland-satellite-unstable
      swaybg
+     brightnessctl
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
