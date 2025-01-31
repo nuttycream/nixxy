@@ -47,6 +47,14 @@
     enable = true;
   };
 
+  services.gammastep = {
+    enable = true;
+    temperature.night = 2500;
+    provider = "manual";
+    latitude = 38.0;
+    longitude = -121.0;
+  };
+
   home.stateVersion = "24.11";
 
   programs.home-manager.enable = true;
