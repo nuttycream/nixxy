@@ -148,6 +148,7 @@
   # };
 
   # List services that you want to enable:
+  services.blueman.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
