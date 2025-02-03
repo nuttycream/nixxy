@@ -22,7 +22,7 @@
     pciutils
     usbutils
 
-    inputs.zen-browser.packages.x86_64-linux.twilight
+    inputs.zen-browser.packages.x86_64-linux.default
   ];
 
   programs.git = {
@@ -49,7 +49,7 @@
 
   services.gammastep = {
     enable = true;
-    temperature.night = 2500;
+    temperature.night = 1000;
     provider = "manual";
     latitude = 38.0;
     longitude = -121.0;
