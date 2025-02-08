@@ -55,6 +55,17 @@
     longitude = -121.0;
   };
 
+  dconf = {
+    enable = true;
+    settings."org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = [
+        pkgs.gnomeExtensions.hide-top-bar.extensionUuid
+        pkgs.gnomeExtensions.vitals.extensionUuid
+      ];
+    };
+  };
+
   home.stateVersion = "24.11";
 
   programs.home-manager.enable = true;
