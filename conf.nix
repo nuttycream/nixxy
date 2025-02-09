@@ -2,13 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -90,9 +95,13 @@
   users.users.j = {
     isNormalUser = true;
     description = "j";
-    extraGroups = [ "networkmanager" "wheel" "video"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -100,7 +109,10 @@
   nixpkgs.config.allowUnfree = true;
   nix = {
     package = pkgs.nix;
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   nix.optimise.automatic = true;
@@ -119,25 +131,24 @@
     nerd-fonts.geist-mono
   ];
 
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-     neovim
-     git
-     gh
-     networkmanagerapplet
-     wl-clipboard
-     wayland-utils
-     libsecret
-     cage
-     xwayland-satellite-unstable
-     swaybg
-     brightnessctl
-     gnomeExtensions.hide-top-bar
-     gnomeExtensions.vitals
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+    neovim
+    git
+    gh
+    networkmanagerapplet
+    wl-clipboard
+    wayland-utils
+    libsecret
+    cage
+    xwayland-satellite-unstable
+    swaybg
+    brightnessctl
+    gnomeExtensions.hide-top-bar
+    gnomeExtensions.vitals
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

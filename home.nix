@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }: 
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   home.username = "j";
@@ -13,7 +18,7 @@
     # archives
     zip
     unzip
-    # utils 
+    # utils
     tree
     ripgrep
     fzf
