@@ -8,6 +8,7 @@
     fuzzel
     dunst
     waybar
+    zoxide
     # archives
     zip
     unzip
@@ -40,8 +41,18 @@
     };
   };
 
+  programs.bash.enable = true;
+
   programs.fuzzel.enable = true;
   services.dunst.enable = true;
+
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+    options = [
+      "--cmd cd"
+    ];
+  };
 
   programs.waybar = {
     enable = true;
