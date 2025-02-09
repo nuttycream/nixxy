@@ -5,6 +5,7 @@
   home.homeDirectory = "/home/j";
 
   home.packages = with pkgs; [
+    vesktop
     fuzzel
     dunst
     waybar
