@@ -131,6 +131,16 @@
     nerd-fonts.geist-mono
   ];
 
+  # gaming
+
+  hardware.opengl = {
+    enable = true;
+  };
+ 
+  # services.xserver.videoDrivers = [“nvidia”];
+  services.xserver.videoDrivers = ["amdgpu"];
+
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -149,6 +159,7 @@
     brightnessctl
     gnomeExtensions.hide-top-bar
     gnomeExtensions.vitals
+    mangohud
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -198,6 +209,10 @@
     totem
     gnome-software
   ];
+
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
