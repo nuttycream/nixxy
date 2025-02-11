@@ -1,15 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   config,
   pkgs,
   inputs,
   ...
-}:
-
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware.nix
@@ -124,7 +121,7 @@
 
   # niri
   programs.niri.enable = true;
-  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+  nixpkgs.overlays = [inputs.niri.overlays.niri];
   programs.niri.package = pkgs.niri-unstable;
 
   fonts.packages = with pkgs; [
@@ -136,10 +133,9 @@
   hardware.opengl = {
     enable = true;
   };
- 
+
   # services.xserver.videoDrivers = [“nvidia”];
   services.xserver.videoDrivers = ["amdgpu"];
-
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -241,5 +237,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }

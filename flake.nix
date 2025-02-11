@@ -26,36 +26,34 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      niri,
-      zen-browser,
-      ...
-    }@inputs:
-    {
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    niri,
+    zen-browser,
+    ...
+  } @ inputs: {
+    nixosConfigurations = {
+      nixxy = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./conf.nix
+          inputs.chaotic.nixosModules.default
+          inputs.niri.nixosModules.niri
 
-      nixosConfigurations = {
-        nixxy = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./conf.nix
-            inputs.chaotic.nixosModules.default
-            inputs.niri.nixosModules.niri
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.j.imports = [ ./home.nix ];
-            }
-          ];
-        };
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.users.j.imports = [./home.nix];
+          }
+        ];
       };
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
     };
+
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+  };
 }
