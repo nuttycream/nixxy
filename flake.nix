@@ -24,6 +24,12 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = {
@@ -32,6 +38,7 @@
     home-manager,
     niri,
     zen-browser,
+    nvf,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -48,7 +55,10 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.users.j.imports = [./home.nix];
+            home-manager.users.j.imports = [
+              nvf.homeManagerModules.default
+              ./home.nix
+            ];
           }
         ];
       };
