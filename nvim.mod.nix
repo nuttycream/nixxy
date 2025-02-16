@@ -1,9 +1,8 @@
 {
-  pkgs, 
+  pkgs,
   lib,
   ...
-}:
-{
+}: {
   programs.nvf = {
     enable = true;
     settings = {
@@ -19,7 +18,6 @@
           shiftwidth = 2;
           expandtab = true;
           smartindent = true;
-          
         };
 
         theme = {
@@ -44,7 +42,7 @@
           mapleader = " ";
         };
 
-        keymaps = [ 
+        keymaps = [
           {
             key = "<leader>pv";
             mode = "n";

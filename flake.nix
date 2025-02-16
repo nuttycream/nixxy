@@ -29,7 +29,6 @@
       url = "github:notashelf/nvf";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs = {
@@ -41,7 +40,6 @@
     nvf,
     ...
   } @ inputs: {
-
     nixosConfigurations = {
       nixxy = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -52,7 +50,7 @@
           nvf.nixosModules.default
 
           ./conf.nix
-	  ./nvim.mod.nix
+          ./nvim.mod.nix
 
           home-manager.nixosModules.home-manager
           {
