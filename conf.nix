@@ -129,8 +129,7 @@
   ];
 
   # gaming
-
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
   };
 
