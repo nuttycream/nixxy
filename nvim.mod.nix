@@ -11,12 +11,15 @@
         viAlias = true;
         vimAlias = true;
 
+        undoFile.enable = true;
+
         options = {
           tabstop = 2;
           softtabstop = 2;
           shiftwidth = 2;
           expandtab = true;
           smartindent = true;
+          
         };
 
         theme = {
@@ -26,6 +29,8 @@
           transparent = true;
         };
 
+        autopairs.nvim-autopairs.enable = true;
+
         languages = {
           enableLSP = true;
           enableTreesitter = true;
@@ -34,6 +39,18 @@
           rust.enable = true;
           clang.enable = true;
         };
+
+        globals = {
+          mapleader = " ";
+        };
+
+        keymaps = [ 
+          {
+            key = "<leader>pv";
+            mode = "n";
+            action = ":Ex";
+          }
+        ];
       };
     };
   };
