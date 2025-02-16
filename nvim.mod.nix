@@ -48,7 +48,8 @@
           {
             key = "<leader>pv";
             mode = "n";
-            action = ":Ex";
+            silent = true;
+            action = "<cmd>Ex<CR>";
           }
         ];
       };
