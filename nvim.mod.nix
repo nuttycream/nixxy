@@ -26,12 +26,13 @@
           transparent = true;
         };
 
-
         languages = {
           enableLSP = true;
           enableTreesitter = true;
 
           nix.enable = true;
+          rust.enable = true;
+          clang.enable = true;
         };
       };
     };
