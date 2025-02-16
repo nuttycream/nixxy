@@ -27,7 +27,7 @@
 
     nvf = {
       url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };
@@ -41,14 +41,18 @@
     nvf,
     ...
   } @ inputs: {
+
     nixosConfigurations = {
       nixxy = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
-          ./conf.nix
           inputs.chaotic.nixosModules.default
           inputs.niri.nixosModules.niri
+          nvf.nixosModules.default
+
+          ./conf.nix
+	  ./nvim.mod.nix
 
           home-manager.nixosModules.home-manager
           {
@@ -56,7 +60,6 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.j.imports = [
-              nvf.homeManagerModules.default
               ./home.nix
             ];
           }

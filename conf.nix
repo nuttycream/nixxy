@@ -156,6 +156,7 @@
     gnomeExtensions.hide-top-bar
     gnomeExtensions.vitals
     mangohud
+    rpi-imager
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
