@@ -125,7 +125,7 @@
   programs.niri.package = pkgs.niri-unstable;
 
   fonts.packages = with pkgs; [
-    nerd-fonts.geist-mono
+    geist-font
   ];
 
   # gaming
