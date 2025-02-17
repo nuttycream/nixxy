@@ -59,6 +59,7 @@
             home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.j.imports = [
               ./home.nix
+              ./waybar.mod.nix
             ];
           }
         ];
