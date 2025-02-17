@@ -8,7 +8,7 @@
   home.homeDirectory = "/home/j";
 
   home.packages = with pkgs; [
-    vesktop
+    legcord
     fuzzel
     dunst
     waybar

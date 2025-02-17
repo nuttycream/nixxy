@@ -28,6 +28,7 @@
         };
 
         autopairs.nvim-autopairs.enable = true;
+        presence.neocord.enable = true;
 
         languages = {
           enableLSP = true;
