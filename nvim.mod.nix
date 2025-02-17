@@ -29,12 +29,22 @@
 
         autopairs.nvim-autopairs.enable = true;
         presence.neocord.enable = true;
+        presence.neocord.setupOpts = {
+          show_time = false; # :^)
+          global_timer = true;
+        };
+        fzf-lua.enable = true;
 
         languages = {
           enableLSP = true;
           enableTreesitter = true;
 
-          nix.enable = true;
+          nix = {
+            enable = true;
+            lsp.enable = true;
+            lsp.server = "nixd";
+          };
+
           rust.enable = true;
           clang.enable = true;
         };
@@ -47,8 +57,19 @@
           {
             key = "<leader>pv";
             mode = "n";
-            silent = true;
             action = "<cmd>Ex<CR>";
+          }
+          {
+            key = "<leader>pf";
+            mode = "n";
+            action = ''require("fzf-lua").files'';
+            lua = true;
+          }
+          {
+            key = "<leader>ps";
+            mode = "n";
+            action = ''require("fzf-lua").live_grep'';
+            lua = true;
           }
         ];
       };
