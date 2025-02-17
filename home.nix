@@ -39,6 +39,7 @@
   programs.foot = {
     enable = true;
     settings = {
+      main.font = "Geist Mono:size=11";
       colors = {
         alpha = 0;
       };
