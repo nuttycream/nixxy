@@ -49,6 +49,10 @@
           clang.enable = true;
         };
 
+        autocomplete.blink-cmp = {
+          enable = true;
+        };
+
         globals = {
           mapleader = " ";
         };
@@ -69,6 +73,12 @@
             key = "<leader>ps";
             mode = "n";
             action = ''require("fzf-lua").live_grep'';
+            lua = true;
+          }
+          {
+            key = "<leader>y";
+            mode = "n";
+            action = ''[["+y]]'';
             lua = true;
           }
         ];
