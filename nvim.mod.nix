@@ -77,9 +77,13 @@
           }
           {
             key = "<leader>y";
-            mode = "n";
+            mode = ["n" "v"];
             action = ''[["+y]]'';
-            lua = true;
+          }
+          {
+            key = "<leader>s";
+            mode = "n";
+            action = ''[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]'';
           }
         ];
       };
