@@ -39,31 +39,46 @@
     zen-browser,
     nvf,
     ...
-  } @ inputs: {
-    nixosConfigurations = {
-      nixxy = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
-        modules = [
-          inputs.chaotic.nixosModules.default
-          inputs.niri.nixosModules.niri
-          nvf.nixosModules.default
+  } @ inputs: 
+    let
 
-          ./conf.nix
-          ./nvim.mod.nix
+      shared = [
+        inputs.chaotic.nixosModules.default
+        niri.nixosModules.niri
+        nvf.nixosModules.default
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.users.j.imports = [
-              ./home.nix
-              ./waybar.mod.nix
-            ];
-          }
-        ];
-      };
+        ./conf.nix
+        ./nvim.mod.nix
+
+        home-manager.nixosModules.home-manager 
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {inherit inputs;};
+          home-manager.users.j.imports = [
+            ./home.nix
+          ];
+        }
+      ];
+    in {
+      nixosConfigurations = {
+        lappy = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {inherit inputs;};
+          modules = shared ++ [
+            ./lappy.hardware.nix
+            ./waybar.mod.nix
+          ];
+        };
+        desky = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {inherit inputs;};
+          modules = shared ++ [
+            ./desky.hardware.nix
+            ./gnome.mod.nix
+            ./gaming.mod.nix
+          ];
+        };
     };
 
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
