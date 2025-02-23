@@ -101,7 +101,7 @@
   environment.systemPackages = with pkgs; [
     neovim
     git
-    gh
+    age
     networkmanagerapplet
     wl-clipboard
     wayland-utils
@@ -110,8 +110,6 @@
     xwayland-satellite-unstable
     swaybg
     brightnessctl
-    mangohud
-    rpi-imager
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
