@@ -74,6 +74,7 @@
       enabled-extensions = [
         pkgs.gnomeExtensions.hide-top-bar.extensionUuid
         pkgs.gnomeExtensions.vitals.extensionUuid
+        pkgs.gnomeExtensions.paperwm.extensionUuid
       ];
     };
   };
