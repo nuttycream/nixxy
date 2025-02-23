@@ -154,6 +154,7 @@
     brightnessctl
     gnomeExtensions.hide-top-bar
     gnomeExtensions.vitals
+    gnomeExtensions.paperwm
     mangohud
     rpi-imager
   ];
