@@ -29,6 +29,10 @@
       url = "github:notashelf/nvf";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops = {
+      url = "github:Mic92/sops-nix";
+    };
   };
 
   outputs = {
@@ -44,6 +48,7 @@
 
       shared = [
         inputs.chaotic.nixosModules.default
+        inputs.sops.nixosModules.sops
         niri.nixosModules.niri
         nvf.nixosModules.default
 
@@ -55,6 +60,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = {inherit inputs;};
+          home-manager.backupFileExtension = "backup";
           home-manager.users.j.imports = [
             ./home.nix
           ];
