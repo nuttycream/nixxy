@@ -54,16 +54,4 @@
     totem
     gnome-software
   ];
-
-  dconf = {
-    enable = true;
-    settings."org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = [
-        pkgs.gnomeExtensions.hide-top-bar.extensionUuid
-        pkgs.gnomeExtensions.vitals.extensionUuid
-        pkgs.gnomeExtensions.paperwm.extensionUuid
-      ];
-    };
-  };
 }
