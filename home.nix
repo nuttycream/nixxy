@@ -32,8 +32,17 @@
 
   programs.git = {
     enable = true;
+    lfs.enable = true;
     userName = "nuttyCream";
     userEmail = "issanutty@gmail.com";
+    extraConfig = {
+      push = { autoSetupRemote = true; };
+    };
+  };
+  
+  programs.gh = {
+    enable = true;
+    gitCredentialHelper.enable = true;
   };
 
   programs.foot = {
@@ -74,6 +83,7 @@
       enabled-extensions = [
         pkgs.gnomeExtensions.hide-top-bar.extensionUuid
         pkgs.gnomeExtensions.vitals.extensionUuid
+        pkgs.gnomeExtensions.paperwm.extensionUuid
       ];
     };
   };
