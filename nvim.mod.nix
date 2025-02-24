@@ -1,6 +1,4 @@
 {
-  pkgs,
-  lib,
   ...
 }: {
   programs.nvf = {
@@ -88,12 +86,12 @@
           {
             key = "<leader>y";
             mode = ["n" "v"];
-            action = ''[["+y]]'';
+            action = ''"+y'';
           }
           {
             key = "<leader>s";
             mode = "n";
-            action = ''[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]'';
+            action = '':%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>'';
           }
         ];
       };
