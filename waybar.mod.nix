@@ -17,10 +17,7 @@ lib,
           "clock"
           "battery"
         ];
-        mode = "overlay";
         start_hidden = true;
-        modifier-reset = "release";
-        
       };
       style = ''
       * {
