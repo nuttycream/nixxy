@@ -1,22 +1,23 @@
 {
-  pkgs,
-  lib,
-  ...
+pkgs,
+lib,
+...
 }: {
-  programs.waybar = {
-    enable = true;
-    systemd.enable = true;
-    settings.mainBar = {
-      layer = "top";
-      modules-left = [
-        "niri/window"
-      ];
-      modules-right = [
-        "clock"
-        "battery"
-      ];
-    };
-    style = ''
+  home-manager.users.j = {
+    programs.waybar = {
+      enable = true;
+      systemd.enable = true;
+      settings.mainBar = {
+        layer = "top";
+        modules-left = [
+          "niri/window"
+        ];
+        modules-right = [
+          "clock"
+          "battery"
+        ];
+      };
+      style = ''
       * {
        border: none;
        border-radius: 0;
@@ -49,6 +50,7 @@
        padding: 0 2px;
       }
 
-    '';
+      '';
+    };
   };
 }
