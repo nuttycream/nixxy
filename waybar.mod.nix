@@ -9,6 +9,7 @@ lib,
       systemd.enable = true;
       settings.mainBar = {
         layer = "top";
+        position = "top";
         modules-left = [
           "niri/window"
         ];
@@ -16,6 +17,10 @@ lib,
           "clock"
           "battery"
         ];
+        mode = "overlay";
+        start_hidden = true;
+        modifier-reset = "release";
+        
       };
       style = ''
       * {
