@@ -2,7 +2,7 @@
   description = "c dev template based off of the-nix-way/dev-templates";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.*.tar.gz";
   };
 
   outputs = { self, nixpkgs }: 
