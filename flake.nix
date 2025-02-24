@@ -73,6 +73,7 @@
           specialArgs = {inherit inputs;};
           modules = shared ++ [
             ./lappy.hardware.nix
+            ./niri.mod.nix
             ./waybar.mod.nix
           ];
         };

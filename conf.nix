@@ -83,9 +83,6 @@
     options = "--delete-older-than 7d";
   };
 
-  programs.niri.enable = true;
-  nixpkgs.overlays = [inputs.niri.overlays.niri];
-  programs.niri.package = pkgs.niri-unstable;
 
   fonts.packages = with pkgs; [
     geist-font
