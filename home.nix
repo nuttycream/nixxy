@@ -8,7 +8,7 @@
   home.homeDirectory = "/home/j";
 
   home.packages = with pkgs; [
-    legcord
+    webcord
     fuzzel
     dunst
     waybar
@@ -52,6 +52,7 @@
       colors = {
         alpha = 0;
       };
+      csd.size = 0;
     };
   };
 
