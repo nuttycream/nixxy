@@ -33,6 +33,7 @@
     variant = "";
   };
 
+  hardware.bluetooth.enable = true;
   services.blueman.enable = true;
   services.openssh.enable = true;
   services.xserver.enable = true;
