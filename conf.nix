@@ -104,7 +104,7 @@
     wayland-utils
     libsecret
     cage
-    xwayland-satellite-unstable
+    xwayland-satellite
     swaybg
     brightnessctl
   ];
