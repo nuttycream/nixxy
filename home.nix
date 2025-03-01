@@ -26,6 +26,7 @@
     lm_sensors
     pciutils
     usbutils
+    handbrake
 
     inputs.zen-browser.packages.x86_64-linux.default
   ];
