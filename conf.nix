@@ -37,7 +37,7 @@
   services.blueman.enable = true;
   services.openssh.enable = true;
   services.xserver.enable = true;
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   services.displayManager.ly.enable = true;
   services.power-profiles-daemon.enable = true;
