@@ -37,10 +37,10 @@
     userName = "nuttyCream";
     userEmail = "issanutty@gmail.com";
     extraConfig = {
-      push = { autoSetupRemote = true; };
+      push = {autoSetupRemote = true;};
     };
   };
-  
+
   programs.gh = {
     enable = true;
     gitCredentialHelper.enable = true;

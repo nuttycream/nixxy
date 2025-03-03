@@ -4,11 +4,10 @@
   inputs,
   ...
 }: {
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixxy"; 
+  networking.hostName = "nixxy";
 
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = true;
@@ -83,7 +82,6 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
-
 
   fonts.packages = with pkgs; [
     geist-font
