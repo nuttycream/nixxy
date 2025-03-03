@@ -12,4 +12,10 @@
   };
 
   users.defaultUserShell = pkgs.fish;
+  
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    shortcut = "a";
+  };
 }
