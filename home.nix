@@ -31,6 +31,7 @@
     inputs.zen-browser.packages.x86_64-linux.default
   ];
 
+
   programs.git = {
     enable = true;
     lfs.enable = true;
@@ -87,6 +88,12 @@
         pkgs.gnomeExtensions.paperwm.extensionUuid
       ];
     };
+  };
+
+  home.shellAliases = {
+    g = "git";
+    z = "zoxide";
+    l = "ls -la";
   };
 
   home.stateVersion = "24.11";
