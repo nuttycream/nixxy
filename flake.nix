@@ -54,6 +54,7 @@
 
         ./conf.nix
         ./nvim.mod.nix
+        ./shell.mod.nix
 
         home-manager.nixosModules.home-manager 
         {
