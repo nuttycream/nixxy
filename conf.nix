@@ -86,6 +86,7 @@
 
   fonts.packages = with pkgs; [
     geist-font
+    nerd-fonts.geist-mono
   ];
 
   hardware.graphics = {
