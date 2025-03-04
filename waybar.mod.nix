@@ -14,10 +14,18 @@
           "niri/window"
         ];
         modules-right = [
+          "pulseaudio"
           "clock"
           "battery"
         ];
         start_hidden = true;
+
+        "pulseaudio" = {
+          format = "{volume}% {icon}";
+          format-muted = "muted";
+          on-click = "pavucontrol";
+        };
+
       };
       style = ''
         * {
