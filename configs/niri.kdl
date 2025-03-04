@@ -10,6 +10,13 @@ input {
       accel-speed 0.3
       accel-profile "flat"
     }
+
+    touchpad {
+      tap
+      natural-scroll
+      scroll-factor 0.5
+      middle-emulation
+    }
 }
 
 cursor {
