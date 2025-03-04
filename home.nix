@@ -34,7 +34,6 @@
 
   xdg.configFile."tofi/config".source = ./configs/tofi;
 
-
   programs.git = {
     enable = true;
     lfs.enable = true;
