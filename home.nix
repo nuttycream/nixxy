@@ -8,8 +8,9 @@
   home.homeDirectory = "/home/j";
 
   home.packages = with pkgs; [
+    yazi
     vesktop
-    fuzzel
+    tofi
     dunst
     waybar
     zoxide
@@ -30,6 +31,8 @@
 
     inputs.zen-browser.packages.x86_64-linux.default
   ];
+
+  xdg.configFile."tofi/config".source = ./configs/tofi;
 
 
   programs.git = {
