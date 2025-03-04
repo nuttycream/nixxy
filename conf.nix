@@ -4,7 +4,7 @@
   inputs,
   ...
 }: {
-  import = [
+  imports = [
     /etc/nixos/hardware-configuration.nix
   ];
 
