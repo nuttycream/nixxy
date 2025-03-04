@@ -107,6 +107,7 @@
     xwayland-satellite
     swaybg
     brightnessctl
+    ((pkgs.ffmpeg-full.override { withUnfree = true; }).overrideAttrs (_: { doCheck = false; }))
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
