@@ -87,6 +87,9 @@
             ./desky.hardware.nix
             ./gnome.mod.nix
             ./gaming.mod.nix
+
+            ./niri.mod.nix
+            ./waybar.mod.nix
           ];
       };
     };
