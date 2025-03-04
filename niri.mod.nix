@@ -8,7 +8,7 @@
     package = pkgs.niri-unstable;
   };
   nixpkgs.overlays = [inputs.niri.overlays.niri];
-  home-manager.users.j.programs.niri.config = builtins.readFile ./configs/niri.kdl; 
+  home-manager.users.j.xdg.configFile."niri/config.kdl".source = ./configs/niri.kdl;
 
 }
 
