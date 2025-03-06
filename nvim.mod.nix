@@ -63,9 +63,10 @@
 
         lsp.mappings = {
           codeAction = "<leader>vca";
-          goToDeclaration = "<leader>gD";
-          goToDefinition = "<leader>gd";
-          openDiagnosticFloat = "<leader>vcs";
+          goToDeclaration = "gD";
+          goToDefinition = "gd";
+          goToType = "gt";
+          openDiagnosticFloat = "<leader>vd";
           renameSymbol = "<leader>vrn";
         };
 
