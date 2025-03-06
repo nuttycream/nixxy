@@ -74,7 +74,7 @@
 
   services.gammastep = {
     enable = true;
-    temperature.night = 1000;
+    temperature.night = 2000;
     provider = "manual";
     latitude = 38.0;
     longitude = -121.0;
