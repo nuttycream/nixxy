@@ -27,10 +27,6 @@
 
         autopairs.nvim-autopairs.enable = true;
         presence.neocord.enable = true;
-        presence.neocord.setupOpts = {
-          show_time = false; # :^)
-          global_timer = true;
-        };
         fzf-lua.enable = true;
 
         languages = {
@@ -63,6 +59,14 @@
 
         globals = {
           mapleader = " ";
+        };
+
+        lsp.mappings = {
+          codeAction = "<leader>vca";
+          goToDeclaration = "<leader>gD";
+          goToDefinition = "<leader>gd";
+          openDiagnosticFloat = "<leader>vcs";
+          renameSymbol = "<leader>vrn";
         };
 
         keymaps = [
