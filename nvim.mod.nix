@@ -11,9 +11,9 @@
         undoFile.enable = true;
 
         options = {
-          tabstop = 2;
-          softtabstop = 2;
-          shiftwidth = 2;
+          tabstop = 4;
+          softtabstop = 4;
+          shiftwidth = 4;
           expandtab = true;
           smartindent = true;
         };
@@ -45,6 +45,7 @@
 
         autocomplete.blink-cmp = {
           enable = true;
+          friendly-snippets.enable = true;
         };
 
         formatter.conform-nvim = {
