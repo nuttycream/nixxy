@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     mangohud
-    rpi-imager
   ];
 
   programs.steam.enable = true;
