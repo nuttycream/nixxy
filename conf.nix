@@ -112,6 +112,7 @@
     swaybg
     brightnessctl
     pavucontrol
+    btop
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   programs.xwayland.enable = true;
