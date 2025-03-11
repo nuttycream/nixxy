@@ -99,6 +99,11 @@
             mode = "n";
             action = '':%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>'';
           }
+          {
+            key = "<C-u>";
+            mode = "n";
+            action = ''<C-u>zz'';
+          }
         ];
       };
     };
