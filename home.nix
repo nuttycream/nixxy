@@ -7,6 +7,11 @@
   home.username = "j";
   home.homeDirectory = "/home/j";
 
+  home.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "niri";
+    XDG_SESSION_TYPE = "wayland";
+  };
+
   home.packages = with pkgs; [
     yazi
     vesktop
