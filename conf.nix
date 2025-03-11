@@ -38,8 +38,11 @@
   services.xserver.enable = true;
   services.libinput.enable = true;
 
-  services.displayManager.ly.enable = true;
+  #services.displayManager.ly.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   services.power-profiles-daemon.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   services.printing.enable = true;
   services.avahi = {
@@ -55,6 +58,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    jack.enable = true;
   };
 
   users.users.j = {
@@ -102,15 +106,19 @@
     networkmanagerapplet
     wl-clipboard
     wayland-utils
+    xwayland-satellite
     libsecret
     cage
-    xwayland-satellite
     swaybg
     brightnessctl
     pavucontrol
-    ((pkgs.ffmpeg-full.override {withUnfree = true;}).overrideAttrs (_: {doCheck = false;}))
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  programs.xwayland.enable = true;
+  xdg.portal = {
+        enable = true;
+        xdgOpenUsePortal = true;
+    };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
