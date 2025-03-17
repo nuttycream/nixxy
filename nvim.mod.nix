@@ -39,8 +39,19 @@
             lsp.server = "nixd";
           };
 
-          rust.enable = true;
-          clang.enable = true;
+          rust = {
+            enable = true;
+            format.enable = true;
+            lsp.enable = true;
+          };
+
+          clang = {
+            enable = true;
+            lsp.enable = true;
+          };
+
+          markdown.enable = true;
+
         };
 
         autocomplete.blink-cmp = {
@@ -53,12 +64,13 @@
           setupOpts = {
             format_on_save = {
               lsp_format = "fallback";
-              timeout_ms = 500;
+              timeout_ms = 250;
             };
           };
         };
 
         globals = {
+          editorconfig = true;
           mapleader = " ";
         };
 
