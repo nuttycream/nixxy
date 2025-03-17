@@ -51,7 +51,6 @@
           };
 
           markdown.enable = true;
-
         };
 
         autocomplete.blink-cmp = {
