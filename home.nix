@@ -22,6 +22,7 @@
     # archives
     zip
     unzip
+    p7zip
     # utils
     tree
     ripgrep
