@@ -100,6 +100,7 @@
   services.xserver.videoDrivers = ["amdgpu"];
 
   environment.systemPackages = with pkgs; [
+    wget
     neovim
     git
     age
@@ -113,6 +114,7 @@
     brightnessctl
     pavucontrol
     btop
+    devenv
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   programs.xwayland.enable = true;
