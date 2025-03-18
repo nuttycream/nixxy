@@ -74,10 +74,12 @@
   nixpkgs.config.allowUnfree = true;
   nix = {
     package = pkgs.nix;
-    settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes" ];
+      trusted-users = [ "root" "j" ];
+    };
   };
 
   nix.optimise.automatic = true;
@@ -115,6 +117,7 @@
     pavucontrol
     btop
     devenv
+    obs-studio
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   programs.xwayland.enable = true;
