@@ -61,6 +61,11 @@
         formatter.conform-nvim = {
           enable = true;
           setupOpts = {
+            formatters_by_ft = {
+              rust = [
+                "rustfmt"
+              ];
+            };
             format_on_save = {
               lsp_format = "fallback";
               timeout_ms = 250;
