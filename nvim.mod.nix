@@ -50,6 +50,12 @@
             lsp.enable = true;
           };
 
+          lua = {
+            enable = true;
+            lsp.enable = true;
+            lsp.lazydev.enable = true;
+          };
+
           markdown.enable = true;
         };
 
