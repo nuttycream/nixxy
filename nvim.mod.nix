@@ -5,6 +5,10 @@
       vim = {
         enableLuaLoader = true;
 
+        extraLuaFiles = [
+          #./nvim-plugin/lua/hl-buffer.lua
+        ];
+
         viAlias = true;
         vimAlias = true;
 
@@ -54,6 +58,11 @@
             enable = true;
             lsp.enable = true;
             lsp.lazydev.enable = true;
+          };
+
+          zig = {
+            enable = true;
+            lsp.enable = true;
           };
 
           markdown.enable = true;
