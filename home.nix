@@ -15,6 +15,7 @@
   home.packages = with pkgs; [
     yazi
     vesktop
+    discord-canary
     tofi
     dunst
     waybar
