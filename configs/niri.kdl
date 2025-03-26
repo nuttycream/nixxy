@@ -81,7 +81,6 @@ layout {
 }
 
 spawn-at-startup "systemctl --user reset-failed waybar.service"
-spawn-at-startup "xwayland-satellite"
 
 prefer-no-csd
 
