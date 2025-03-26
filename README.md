@@ -1,7 +1,5 @@
 # nixxy  
----
 my shitty attempt declarative and functional sys 
----
 
 ### Hardware
 
