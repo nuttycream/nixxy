@@ -1,10 +1,10 @@
 {pkgs, ...}: {
+
   services.xserver.desktopManager.gnome.enable = true;
 
   environment.systemPackages = with pkgs; [
     gnomeExtensions.hide-top-bar
     gnomeExtensions.vitals
-    gnomeExtensions.paperwm
   ];
 
   # apps to not install
@@ -28,7 +28,7 @@
     # xdg-user-dirs # Update user dirs as described in https://freedesktop.org/wiki/Software/xdg-user-dirs/
     # xdg-user-dirs-gtk # Used to create the default bookmarks
     # baobab
-    epiphany
+    # epiphany
     gnome-text-editor
     gnome-calculator
     gnome-calendar
@@ -47,7 +47,7 @@
     gnome-connections
     # simple-scan
     # snapshot
-    totem
+    # totem
     gnome-software
   ];
 }
