@@ -65,7 +65,16 @@
             lsp.enable = true;
           };
 
-          markdown.enable = true;
+          html = {
+            enable = true;
+            treesitter.enable = true;
+            treesitter.autotagHtml = true;
+          };
+
+          markdown = {
+            enable = true;
+            extensions.render-markdown-nvim.enable = true;
+          };
         };
 
         autocomplete.blink-cmp = {
