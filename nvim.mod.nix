@@ -105,6 +105,8 @@
           friendly-snippets.enable = true;
         };
 
+        comments.comment-nvim.enable = true;
+
         formatter.conform-nvim = {
           enable = true;
           setupOpts = {
