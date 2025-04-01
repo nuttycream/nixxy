@@ -5,6 +5,12 @@
       vim = {
         enableLuaLoader = true;
 
+        luaConfigPre = ''
+          vim.diagnostic.config({
+            virtual_text = { current_line = true }
+          })
+        '';
+
         extraLuaFiles = [
           #./nvim-plugin/lua/hl-buffer.lua
         ];
