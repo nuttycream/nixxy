@@ -47,6 +47,10 @@
           git-conflict.enable = false;
         };
 
+        treesitter = {
+          enable = true;
+        };
+
         languages = {
           enableLSP = true;
           enableTreesitter = true;
