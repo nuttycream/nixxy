@@ -37,11 +37,20 @@
 
         autopairs.nvim-autopairs.enable = true;
         presence.neocord.enable = true;
-        fzf-lua.enable = true;
+        fzf-lua = {
+          enable = true;
+          setupOpts.winopts.border = "none";
+        };
+
+        git = {
+          enable = true;
+          git-conflict.enable = false;
+        };
 
         languages = {
           enableLSP = true;
           enableTreesitter = true;
+          enableFormat = true;
 
           nix = {
             enable = true;
@@ -51,7 +60,6 @@
 
           rust = {
             enable = true;
-            format.enable = true;
             lsp.enable = true;
           };
 
@@ -80,6 +88,11 @@
           markdown = {
             enable = true;
             extensions.render-markdown-nvim.enable = true;
+          };
+
+          ts = {
+            enable = true;
+            treesitter.enable = true;
           };
         };
 
