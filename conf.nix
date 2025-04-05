@@ -120,6 +120,10 @@
     btop
     devenv
     obs-studio
+    wineWowPackages.stable
+    wine64
+    winetricks
+    wineWowPackages.waylandFull
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   programs.xwayland.enable = true;
