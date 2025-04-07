@@ -17,6 +17,7 @@
     vesktop
     discord-canary
     tofi
+    bemenu
     dunst
     waybar
     zoxide
@@ -35,6 +36,8 @@
     pciutils
     usbutils
     handbrake
+    # fallback browser because zen can fucking break
+    firefox
 
     inputs.zen-browser.packages.x86_64-linux.default
   ];
