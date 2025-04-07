@@ -41,7 +41,7 @@ output "eDP-1" {
 
     mode "2256x1504@59.9"
 
-    scale 1.5
+    scale 1.8
     transform "normal"
 
     position x=1280 y=0
@@ -104,7 +104,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return { spawn "foot"; }
-    Mod+D { spawn "tofi-drun" "--fuzzy-match=true" "--drun-launch=true"; }
+    Mod+D { spawn "bemenu-run" "-c"; }
     Super+Alt+L { spawn "swaylock"; }
     Mod+W { spawn "pkill" "-SIGUSR1" "waybar"; }
 
