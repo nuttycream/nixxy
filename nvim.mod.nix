@@ -52,12 +52,11 @@
         };
 
         languages = {
-          enableLSP = true;
-          enableTreesitter = true;
-          enableFormat = true;
+          # is this depcretaed or wut
 
           nix = {
             enable = true;
+            format.enable = true;
             lsp.enable = true;
             lsp.server = "nixd";
           };
@@ -65,15 +64,19 @@
           rust = {
             enable = true;
             lsp.enable = true;
+            treesitter.enable = true;
           };
 
           clang = {
             enable = true;
             lsp.enable = true;
+            treesitter.enable = true;
+            cHeader = true;
           };
 
           lua = {
             enable = true;
+            format.enable = true;
             lsp.enable = true;
             lsp.lazydev.enable = true;
           };
@@ -91,6 +94,7 @@
 
           markdown = {
             enable = true;
+            format.enable = true;
             extensions.render-markdown-nvim.enable = true;
           };
 
@@ -107,33 +111,27 @@
 
         comments.comment-nvim.enable = true;
 
-        formatter.conform-nvim = {
-          enable = true;
-          setupOpts = {
-            formatters_by_ft = {
-              rust = [
-                "rustfmt"
-              ];
-            };
-            format_on_save = {
-              lsp_format = "fallback";
-              timeout_ms = 250;
-            };
-          };
-        };
-
         globals = {
           editorconfig = true;
           mapleader = " ";
         };
 
-        lsp.mappings = {
-          codeAction = "<leader>vca";
-          goToDeclaration = "gD";
-          goToDefinition = "gd";
-          goToType = "gt";
-          openDiagnosticFloat = "<leader>vd";
-          renameSymbol = "<leader>vrn";
+        lsp = {
+          formatOnSave = true;
+          trouble = {
+            enable = true;
+            mappings = {
+              documentDiagnostics = "<leader>xx";
+            };
+          };
+          mappings = {
+            codeAction = "<leader>vca";
+            goToDeclaration = "gD";
+            goToDefinition = "gd";
+            goToType = "gt";
+            openDiagnosticFloat = "<leader>vd";
+            renameSymbol = "<leader>vrn";
+          };
         };
 
         keymaps = [
