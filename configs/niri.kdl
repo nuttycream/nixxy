@@ -24,7 +24,7 @@ cursor {
   hide-after-inactive-ms 1000
 }
 
-output "HDMI-A-1" {
+output "DP-2" {
     // off
 
     mode "3840x2160@120"
