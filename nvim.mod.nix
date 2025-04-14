@@ -47,10 +47,6 @@
           git-conflict.enable = false;
         };
 
-        treesitter = {
-          enable = true;
-        };
-
         languages = {
           # is this depcretaed or wut
 
@@ -65,6 +61,15 @@
             enable = true;
             lsp.enable = true;
             treesitter.enable = true;
+            lsp.opts = ''
+              ['rust-analyzer'] = {
+                cargo = {allFeature = true},
+                checkOnSave = true,
+                procMacro = {
+                  enable = true,
+                },
+              },
+            '';
           };
 
           clang = {
