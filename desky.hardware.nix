@@ -16,23 +16,23 @@
   services.scx.enable = true;
   services.scx.scheduler = "scx_lavd";
 
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid"];
+  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
   # hardware.xone.enable = true;
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/65a9cc2a-e2c8-48c9-af1e-3d9b9ede34cc";
-    fsType = "ext4";
-  };
+   fileSystems."/" =
+    { device = "/dev/disk/by-uuid/300ab82a-de51-4f81-84cf-52c706b94ff3";
+      fsType = "ext4";
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/3D08-FCF4";
-    fsType = "vfat";
-    options = ["fmask=0077" "dmask=0077"];
-  };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/5740-A46C";
+      fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
+    };
 
   swapDevices = [];
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
