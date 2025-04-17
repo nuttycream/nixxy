@@ -21,18 +21,32 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
-  # hardware.xone.enable = true;
+  hardware.firmware = [
+    (pkgs.stdenv.mkDerivation {
+      name = "edid-custom";
+      src = ./deez;
+      installPhase = ''
+        mkdir -p $out/lib/firmware/edid
+        cp g80sd_4k_240.bin $out/lib/firmware/edid/
+      '';
+    })
+  ];
 
-   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/300ab82a-de51-4f81-84cf-52c706b94ff3";
-      fsType = "ext4";
-    };
+  hardware.display = {
+    outputs."DP-2".edid = "g80sd_4k_240.bin";
+    outputs."DP-2".mode = "e";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/5740-A46C";
-      fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/300ab82a-de51-4f81-84cf-52c706b94ff3";
+    fsType = "ext4";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/5740-A46C";
+    fsType = "vfat";
+    options = ["fmask=0077" "dmask=0077"];
+  };
 
   swapDevices = [];
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
