@@ -60,6 +60,7 @@
           rust = {
             enable = true;
             lsp.enable = true;
+            format.enable = true;
             treesitter.enable = true;
             lsp.opts = ''
               ['rust-analyzer'] = {
@@ -129,6 +130,7 @@
               documentDiagnostics = "<leader>xx";
             };
           };
+
           mappings = {
             codeAction = "<leader>vca";
             goToDeclaration = "gD";
