@@ -48,6 +48,18 @@ output "eDP-1" {
     background-color "#000000"
 }
 
+output "DP-4" {
+    // off
+
+    mode "3840x2160@120"
+
+    scale 1.5
+    transform "normal"
+
+    position x=1280 y=0
+    background-color "#000000"
+}
+
 layout {
     gaps 0
 
