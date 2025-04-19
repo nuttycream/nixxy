@@ -28,6 +28,8 @@
           smartindent = true;
         };
 
+        spellcheck.enable = true;
+
         theme = {
           enable = true;
           name = "oxocarbon";
