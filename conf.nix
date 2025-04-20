@@ -132,6 +132,11 @@
     xdgOpenUsePortal = true;
   };
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = [
+    # insert dynamic libs
+  ];
+
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = ["j"];
   virtualisation.libvirtd.enable = true;
