@@ -7,6 +7,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  time.hardwareClockInLocalTime = true;
+
   networking.hostName = "nixxy";
 
   networking.networkmanager.enable = true;
@@ -124,6 +126,7 @@
     wine64
     winetricks
     wineWowPackages.waylandFull
+    distrobox
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   programs.xwayland.enable = true;
@@ -141,6 +144,11 @@
   users.groups.libvirtd.members = ["j"];
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
+
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
