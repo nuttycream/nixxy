@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     mangohud
+    blender
   ];
 
   programs.steam.enable = true;
