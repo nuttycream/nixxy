@@ -28,7 +28,15 @@
           smartindent = true;
         };
 
-        spellcheck.enable = true;
+        spellcheck = {
+          enable = true;
+          programmingWordlist.enable = true;
+          ignoredFiletypes = [
+            "rust"
+            "nix"
+            "c"
+          ];
+        };
 
         theme = {
           enable = true;
