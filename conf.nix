@@ -96,6 +96,7 @@
   fonts.packages = with pkgs; [
     geist-font
     nerd-fonts.geist-mono
+    maple-mono.NF-unhinted
   ];
 
   hardware.graphics = {

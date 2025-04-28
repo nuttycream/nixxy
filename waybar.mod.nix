@@ -25,13 +25,12 @@
           format-muted = "muted";
           on-click = "pavucontrol";
         };
-
       };
       style = ''
         * {
          border: none;
          border-radius: 0;
-         font-family: Geist Mono;
+         font-family: Maple Mono NF;
          font-size: 12px;
          min-height: 0;
         }

@@ -62,7 +62,8 @@
   programs.foot = {
     enable = true;
     settings = {
-      main.font = "Geist Mono:size=11";
+      main.font = "Maple Mono NF:size=11";
+      #main.font = "Geist Mono:size=11";
       cursor.color = "16181a ffffff";
       colors = {
         alpha = 0;
