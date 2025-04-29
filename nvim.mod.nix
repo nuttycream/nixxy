@@ -59,6 +59,7 @@
 
         languages = {
           # is this depcretaed or wut
+          enableLSP = true;
 
           nix = {
             enable = true;
