@@ -60,6 +60,18 @@ output "DP-4" {
     background-color "#000000"
 }
 
+output "DP-10" {
+    // off
+
+    mode "1920x1080@60"
+
+    scale 1
+    transform "normal"
+
+    position x=1280 y=0
+    background-color "#000000"
+}
+
 layout {
     gaps 0
 
@@ -116,6 +128,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return { spawn "foot"; }
+    Mod+E { spawn "zen-beta"; }
     Mod+D { spawn "bemenu-run" "-c"; }
     Super+Alt+L { spawn "swaylock"; }
     Mod+W { spawn "pkill" "-SIGUSR1" "waybar"; }
