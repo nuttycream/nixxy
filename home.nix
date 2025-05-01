@@ -39,6 +39,10 @@
     # fallback browser because zen can fucking break
     firefox
 
+    zathura
+    # just in case
+    nautilus
+
     inputs.zen-browser.packages.x86_64-linux.default
   ];
 
