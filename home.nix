@@ -21,6 +21,7 @@
     dunst
     waybar
     zoxide
+    vlc
     # archives
     zip
     unzip
