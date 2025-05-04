@@ -20,6 +20,7 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
   hardware.firmware = [
     (pkgs.stdenv.mkDerivation {
