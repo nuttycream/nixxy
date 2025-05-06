@@ -15,7 +15,7 @@
   home.packages = with pkgs; [
     yazi
     vesktop
-    discord-canary
+    legcord
     tofi
     bemenu
     dunst
