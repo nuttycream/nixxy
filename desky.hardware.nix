@@ -21,6 +21,9 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
+  boot.kernelParams = [
+    "amd_iommu=on"
+  ];
 
   hardware.firmware = [
     (pkgs.stdenv.mkDerivation {
@@ -48,6 +51,8 @@
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
+
+  virtualisation.spiceUSBRedirection.enable = true;
 
   swapDevices = [];
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
