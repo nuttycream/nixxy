@@ -59,7 +59,7 @@
 
         languages = {
           # is this depcretaed or wut
-          enableLSP = true;
+          # enableLSP = true;
 
           nix = {
             enable = true;
@@ -134,6 +134,7 @@
         };
 
         lsp = {
+          enable = true;
           formatOnSave = true;
           trouble = {
             enable = true;
