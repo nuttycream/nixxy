@@ -44,6 +44,8 @@
     # just in case
     nautilus
 
+    qutebrowser
+
     inputs.zen-browser.packages.x86_64-linux.default
   ];
 
