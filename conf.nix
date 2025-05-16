@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   inputs,
   ...
@@ -121,12 +120,7 @@
     brightnessctl
     pavucontrol
     btop
-    devenv
     obs-studio
-    wineWowPackages.stable
-    wine64
-    winetricks
-    wineWowPackages.waylandFull
     distrobox
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
