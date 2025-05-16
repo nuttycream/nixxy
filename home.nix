@@ -14,7 +14,6 @@
 
   home.packages = with pkgs; [
     yazi
-    vesktop
     legcord
     tofi
     bemenu
