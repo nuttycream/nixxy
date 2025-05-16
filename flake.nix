@@ -29,10 +29,6 @@
       url = "github:notashelf/nvf";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    sops = {
-      url = "github:Mic92/sops-nix";
-    };
   };
 
   outputs = {
@@ -46,7 +42,6 @@
   } @ inputs: let
     shared = [
       inputs.chaotic.nixosModules.default
-      inputs.sops.nixosModules.sops
       niri.nixosModules.niri
       nvf.nixosModules.default
 
