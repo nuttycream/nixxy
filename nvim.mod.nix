@@ -46,7 +46,6 @@
         };
 
         autopairs.nvim-autopairs.enable = true;
-        presence.neocord.enable = true;
         fzf-lua = {
           enable = true;
           setupOpts.winopts.border = "none";
