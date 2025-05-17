@@ -3,10 +3,23 @@
   inputs,
   ...
 }: {
-  programs.niri = {
+  environment.systemPackages = with pkgs; [
+    niri
+  ];
+
+  programs.xwayland.enable = true;
+  programs.niri.enable = true;
+
+  xdg.portal = {
     enable = true;
-    package = pkgs.niri-unstable;
+    xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+    ];
   };
-  nixpkgs.overlays = [inputs.niri.overlays.niri];
+
+  services.gnome.gnome-keyring.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   home-manager.users.j.xdg.configFile."niri/config.kdl".source = ./configs/niri.kdl;
 }

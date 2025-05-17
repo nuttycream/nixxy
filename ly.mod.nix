@@ -14,7 +14,6 @@ in {
       xsessions = "${dmcfg.sessionData.desktops}/share/xsessions";
       load = true;
       save = true;
-      tty = 1;
     };
   };
 }

@@ -39,13 +39,6 @@
   services.xserver.enable = true;
   services.libinput.enable = true;
 
-  services.displayManager.ly.enable = true;
-  #services.displayManager.sddm.enable = true;
-  #services.displayManager.sddm.wayland.enable = true;
-  #services.xserver.displayManager.gdm.enable = true;
-  services.power-profiles-daemon.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-
   services.printing.enable = true;
   services.avahi = {
     enable = true;
@@ -122,16 +115,8 @@
     btop
     obs-studio
     distrobox
+    python314Full
   ];
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  programs.xwayland.enable = true;
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gnome
-    ];
-  };
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [

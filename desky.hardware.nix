@@ -15,6 +15,7 @@
   boot.kernelPackages = pkgs.linuxPackages_cachyos-rc;
   services.scx.enable = true;
   services.scx.scheduler = "scx_lavd";
+  chaotic.mesa-git.enable = true;
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
   boot.initrd.kernelModules = [];

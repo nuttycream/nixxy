@@ -7,11 +7,6 @@
   home.username = "j";
   home.homeDirectory = "/home/j";
 
-  home.sessionVariables = {
-    XDG_CURRENT_DESKTOP = "niri";
-    XDG_SESSION_TYPE = "wayland";
-  };
-
   home.packages = with pkgs; [
     yazi
     legcord
@@ -117,13 +112,6 @@
 
   dconf = {
     enable = true;
-    settings."org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = [
-        pkgs.gnomeExtensions.hide-top-bar.extensionUuid
-        pkgs.gnomeExtensions.vitals.extensionUuid
-      ];
-    };
   };
 
   home.shellAliases = {
