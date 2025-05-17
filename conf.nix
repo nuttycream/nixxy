@@ -118,7 +118,6 @@
     btop
     obs-studio
     distrobox
-    python314Full
   ];
 
   programs.nix-ld.enable = true;
