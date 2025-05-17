@@ -15,11 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,19 +30,22 @@
     self,
     nixpkgs,
     home-manager,
-    niri,
     zen-browser,
     nvf,
     ...
   } @ inputs: let
     shared = [
       inputs.chaotic.nixosModules.default
-      niri.nixosModules.niri
       nvf.nixosModules.default
 
       ./conf.nix
+
+      ./ly.mod.nix
       ./nvim.mod.nix
       ./shell.mod.nix
+
+      ./niri.mod.nix
+      ./waybar.mod.nix
 
       home-manager.nixosModules.home-manager
       {
@@ -69,8 +67,6 @@
           shared
           ++ [
             ./lappy.hardware.nix
-            ./niri.mod.nix
-            ./waybar.mod.nix
           ];
       };
       desky = nixpkgs.lib.nixosSystem {
@@ -80,11 +76,6 @@
           shared
           ++ [
             ./desky.hardware.nix
-            ./gnome.mod.nix
-            ./gaming.mod.nix
-
-            ./niri.mod.nix
-            ./waybar.mod.nix
           ];
       };
     };
