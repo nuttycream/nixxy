@@ -10,7 +10,6 @@
   home.packages = with pkgs; [
     yazi
     legcord
-    tofi
     bemenu
     dunst
     waybar
@@ -40,8 +39,6 @@
 
     inputs.zen-browser.packages.x86_64-linux.default
   ];
-
-  xdg.configFile."tofi/config".source = ./configs/tofi;
 
   programs.git = {
     enable = true;
@@ -112,13 +109,6 @@
     enable = true;
   };
 
-  home.shellAliases = {
-    g = "git";
-    z = "zoxide";
-    l = "ls -la";
-  };
-
   home.stateVersion = "24.11";
-
   programs.home-manager.enable = true;
 }

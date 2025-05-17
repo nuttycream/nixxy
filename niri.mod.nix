@@ -25,5 +25,5 @@
   services.gnome.gnome-keyring.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  home-manager.users.j.xdg.configFile."niri/config.kdl".source = ./configs/niri.kdl;
+  home-manager.users.j.xdg.configFile."niri/config.kdl".source = ./niri.kdl;
 }

@@ -26,21 +26,20 @@
     "amd_iommu=on"
   ];
 
+  /*
+  # shit still doesnt fucking work
   hardware.firmware = [
-    (pkgs.stdenv.mkDerivation {
-      name = "edid-custom";
-      src = ./deez;
-      installPhase = ''
-        mkdir -p $out/lib/firmware/edid
-        cp g80sd_4k_240.bin $out/lib/firmware/edid/
-      '';
-    })
+    (pkgs.runCommand "edid-custom" {} ''
+      mkdir -p $out/lib/firmware/edid
+      cp ${./g80sd_4k_240.bin} $out/lib/firmware/edid/
+    '')
   ];
 
   hardware.display = {
     outputs."DP-2".edid = "g80sd_4k_240.bin";
     outputs."DP-2".mode = "e";
   };
+  */
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/300ab82a-de51-4f81-84cf-52c706b94ff3";
