@@ -104,9 +104,6 @@
     git
     age
     networkmanagerapplet
-    wl-clipboard
-    wayland-utils
-    xwayland-satellite
     libsecret
     cage
     swaybg

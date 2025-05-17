@@ -4,6 +4,10 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    wl-clipboard
+    wayland-utils
+    xwayland-satellite
+
     niri
   ];
 
