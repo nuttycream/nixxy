@@ -39,10 +39,10 @@
   services.xserver.enable = true;
   services.libinput.enable = true;
 
-  #services.displayManager.ly.enable = true;
+  services.displayManager.ly.enable = true;
   #services.displayManager.sddm.enable = true;
   #services.displayManager.sddm.wayland.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.displayManager.gdm.enable = true;
   services.power-profiles-daemon.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
@@ -128,6 +128,9 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+    ];
   };
 
   programs.nix-ld.enable = true;

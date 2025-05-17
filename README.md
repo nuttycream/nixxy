@@ -29,7 +29,7 @@ here's some details:\
 - [ ] might revert to simplified lua config for neovim, nvf might be too
       abstracted
 - [ ] [stylix](https://github.com/danth/stylix) integration
-- [ ] get rid of gnome + gdm -> for ly
+- [x] get rid of gnome + gdm -> for ly
 - [ ] use dynamic mod loading similar to
       [sodiboos setup](https://github.com/sodiboo/system/blob/b63c7b27f49043e8701b3ff5e1441cd27d5a2fff/flake.nix#L92C6-L97C9)
 
