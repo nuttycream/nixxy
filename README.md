@@ -21,6 +21,7 @@ here's some details:\
 [relevant issue](https://gitlab.freedesktop.org/drm/amd/-/issues/3718)\
 [arch wiki for edid](https://wiki.archlinux.org/title/Kernel_mode_setting#Forcing_modes_and_EDID)\
 [nixos issue](https://discourse.nixos.org/t/copying-custom-edid/31593)
+[commit](https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/e79ce1639a865d93fa8c27b515e8165c60131c9b)
 
 ## todo
 
@@ -28,7 +29,6 @@ here's some details:\
       integrate harper-ls
 - [ ] might revert to simplified lua config for neovim, nvf might be too
       abstracted
-- [ ] [stylix](https://github.com/danth/stylix) integration
 - [x] get rid of gnome + gdm -> for ly
 - [ ] use dynamic mod loading similar to
       [sodiboos setup](https://github.com/sodiboo/system/blob/b63c7b27f49043e8701b3ff5e1441cd27d5a2fff/flake.nix#L92C6-L97C9)
