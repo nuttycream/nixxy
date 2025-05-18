@@ -56,8 +56,17 @@
           git-conflict.enable = false;
         };
 
-        binds.hardtime-nvim.enable = true;
-        binds.whichKey.enable = true;
+        binds.hardtime-nvim = {
+          enable = true;
+          setupOpts = {
+            max_count = 10;
+            disable_mouse = false;
+          };
+        };
+
+        binds.whichKey = {
+          enable = true;
+        };
 
         languages = {
           # is this depcretaed or wut
