@@ -56,6 +56,9 @@
           git-conflict.enable = false;
         };
 
+        binds.hardtime-nvim.enable = true;
+        binds.whichKey.enable = true;
+
         languages = {
           # is this depcretaed or wut
           # enableLSP = true;
