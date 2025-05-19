@@ -57,7 +57,7 @@
         };
 
         binds.hardtime-nvim = {
-          enable = true;
+          enable = false;
           setupOpts = {
             max_count = 10;
             disable_mouse = false;
