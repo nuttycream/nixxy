@@ -107,6 +107,7 @@
   environment.systemPackages = with pkgs; [
     wget
     neovim
+    qutebrowser
     git
     age
     networkmanagerapplet
