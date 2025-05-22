@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   programs.nvf = {
     enable = true;
     settings = {
@@ -10,6 +10,25 @@
             virtual_text = { current_line = true }
           })
         '';
+
+        extraPlugins = {
+          cyberdream = {
+            package = pkgs.vimPlugins.cyberdream-nvim;
+            setup = ''
+              require('cyberdream').setup {
+                variant = "dark",
+                transparent = true,
+                italic_comments = true,
+                extensions = {
+                  fzflua = true,
+                  mini = true,
+                  whichkey = true
+                }
+              }
+              vim.cmd('colorscheme cyberdream')
+            '';
+          };
+        };
 
         extraLuaFiles = [
           #./nvim-plugin/lua/hl-buffer.lua
@@ -41,13 +60,6 @@
         mini = {
           icons.enable = true;
           indentscope.enable = true;
-        };
-
-        theme = {
-          enable = true;
-          name = "oxocarbon";
-          style = "dark";
-          transparent = true;
         };
 
         autopairs.nvim-autopairs.enable = true;
@@ -151,6 +163,17 @@
 
         comments.comment-nvim.enable = true;
 
+        utility = {
+          oil-nvim = {
+            enable = true;
+            setupOpts = {
+              view_options = {
+                show_hidden = true;
+              };
+            };
+          };
+        };
+
         globals = {
           editorconfig = true;
           mapleader = " ";
@@ -180,7 +203,7 @@
           {
             key = "<leader>pv";
             mode = "n";
-            action = "<cmd>Ex<CR>";
+            action = "<cmd>Oil<CR>";
           }
           {
             key = "<leader>pf";
