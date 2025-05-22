@@ -114,6 +114,13 @@
             lsp.enable = true;
           };
 
+          go = {
+            enable = true;
+            lsp.enable = true;
+            format.enable = true;
+            treesitter.enable = true;
+          };
+
           html = {
             enable = true;
             treesitter.enable = true;
