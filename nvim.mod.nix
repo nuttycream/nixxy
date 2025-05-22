@@ -38,6 +38,11 @@
           ];
         };
 
+        mini = {
+          icons.enable = true;
+          indentscope.enable = true;
+        };
+
         theme = {
           enable = true;
           name = "oxocarbon";
