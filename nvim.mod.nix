@@ -135,7 +135,10 @@
           go = {
             enable = true;
             lsp.enable = true;
-            format.enable = true;
+            format = {
+              enable = true;
+              type = "gofumpt";
+            };
             treesitter.enable = true;
           };
 
