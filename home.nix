@@ -48,6 +48,9 @@
     extraConfig = {
       push = {autoSetupRemote = true;};
     };
+    ignores = [
+      "*.direnv"
+    ];
   };
 
   programs.gh = {
