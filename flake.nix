@@ -3,10 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -20,66 +21,97 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nvf = {
       url = "github:notashelf/nvf";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = {
     self,
     nixpkgs,
-    home-manager,
-    zen-browser,
-    nvf,
     ...
-  } @ inputs: let
-    shared = [
-      inputs.chaotic.nixosModules.default
-      nvf.nixosModules.default
+  } @ inputs:
+    with nixpkgs.lib; let
+      # read files in curr dir
+      # don't need the recursive read_dir since I
+      # don't plan on having nested modules
+      dir = builtins.readDir "${self}";
 
-      ./conf.nix
+      params =
+        inputs
+        // {
+          inherit inputs;
+          configs = raw_configs;
+          inherit merge extras;
+        };
 
-      ./ly.mod.nix
-      ./nvim.mod.nix
-      ./shell.mod.nix
+      # load the mod.nix files
+      # note: git add on new mod.nix files
+      read_modules =
+        filterAttrs (
+          name: type:
+            type == "regular" && hasSuffix ".mod.nix" name
+        )
+        dir;
 
-      ./niri.mod.nix
-      ./waybar.mod.nix
+      # ripped from
+      # https://github.com/sodiboo/system/blob/main/flake.nix#L96C7-L103C12
+      merge = prev: this:
+        {
+          modules = prev.modules or [] ++ this.modules or [];
+          home_modules = prev.home_modules or [] ++ this.home_modules or [];
+        }
+        // (optionalAttrs (prev ? system || this ? system) {
+          system = prev.system or this.system;
+        });
 
-      home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {inherit inputs;};
-        home-manager.backupFileExtension = "backup";
-        home-manager.users.j.imports = [
-          ./home.nix
-        ];
-      }
-    ];
-  in {
-    nixosConfigurations = {
-      lappy = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
-        modules =
-          shared
-          ++ [
-            ./lappy.hardware.nix
-          ];
-      };
-      desky = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
-        modules =
-          shared
-          ++ [
-            ./desky.hardware.nix
-          ];
-      };
+      all_modules =
+        mapAttrsToList (
+          name: _:
+            (import "${self}/${name}") params
+        )
+        read_modules;
+
+      raw_configs' =
+        builtins.zipAttrsWith (
+          machine:
+            if machine == "extras"
+            then mergeAttrsList
+            else builtins.foldl' merge {}
+        )
+        all_modules;
+
+      raw_configs = builtins.removeAttrs raw_configs' ["extras"];
+      extras = raw_configs'.extras or {};
+
+      configs =
+        builtins.mapAttrs (
+          name: config:
+            nixpkgs.lib.nixosSystem {
+              inherit (config) system;
+              modules =
+                config.modules
+                ++ [
+                  {
+                    _module.args.home_modules = config.home_modules;
+                  }
+                ];
+            }
+        )
+        raw_configs;
+    in {
+      nixosConfigurations = configs;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     };
-
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
-  };
 }
