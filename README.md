@@ -20,24 +20,10 @@ here's some details:\
 [arch forums](https://bbs.archlinux.org/viewtopic.php?id=297515)\
 [relevant issue](https://gitlab.freedesktop.org/drm/amd/-/issues/3718)\
 [arch wiki for edid](https://wiki.archlinux.org/title/Kernel_mode_setting#Forcing_modes_and_EDID)\
-[nixos issue](https://discourse.nixos.org/t/copying-custom-edid/31593)
-[commit](https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/e79ce1639a865d93fa8c27b515e8165c60131c9b)
+[nixos issue](https://discourse.nixos.org/t/copying-custom-edid/31593)\
+[drm kernel commit](https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/e79ce1639a865d93fa8c27b515e8165c60131c9b)
 
-## todo
+### helpful stuff
 
-- [ ] [harper-ls](https://writewithharper.com/docs/integrations/neovim)
-      integrate harper-ls
-- [ ] might revert to simplified lua config for neovim, nvf might be too
-      abstracted
-- [x] get rid of gnome + gdm -> for ly
-- [ ] use dynamic mod loading similar to
-      [sodiboos setup](https://github.com/sodiboo/system/blob/b63c7b27f49043e8701b3ff5e1441cd27d5a2fff/flake.nix#L92C6-L97C9)
-
-```nix
-read_all_modules = flip pipe [
-    read_dir_recursively
-    (filterAttrs (flip (const (hasSuffix ".mod.nix"))))
-    (mapAttrs (const import))
-    (mapAttrs (const (flip toFunction params)))
-];
-```
+[nix builtins](https://nix.dev/manual/nix/2.24/language/builtins.html)\
+[debug nix expressions](https://nixos-and-flakes.thiscute.world/best-practices/debugging)\
