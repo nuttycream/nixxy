@@ -32,10 +32,6 @@
   swap = device: {swapDevices = [{inherit device;}];};
 
   cpu = brand: {hardware.cpu.${brand}.updateMicrocode = true;};
-
-  qemu = {modulesPath, ...}: {
-    imports = ["${modulesPath}/profiles/qemu-guest.nix"];
-  };
 in
   {
     universal.modules = [
@@ -45,7 +41,6 @@ in
         lib,
         ...
       }: {
-        environment.systemPackages = with pkgs; [mergerfs];
         networking.useDHCP = lib.mkDefault true;
         time.hardwareClockInLocalTime = true;
         boot.loader.efi.canTouchEfiVariables = true;
