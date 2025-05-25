@@ -7,6 +7,7 @@
         zathura
         legcord
         pandoc
+        yazi
       ];
     })
   ];

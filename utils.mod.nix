@@ -20,6 +20,8 @@
         pciutils
         usbutils
         handbrake
+        ripgrep
+        just
       ];
     })
   ];
