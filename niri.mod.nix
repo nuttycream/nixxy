@@ -79,7 +79,7 @@
         binds = with config.lib.niri.actions; {
           # app launcher
           "Mod+Return".action.spawn = "foot";
-          "Mod+E".action.spawn = "zen-beta";
+          "Mod+E".action.spawn = "floorp";
           "Mod+D".action.spawn = ["bemenu-run" "-c"];
           "Mod+G".action = screenshot;
           "XF86AudioRaiseVolume".action.spawn = [
@@ -145,8 +145,8 @@
           # even though the g80sd is a 240hz 4k monitor
           # im fucking locked at 120
           # manual edid workaround didn't work around....
-          mode.height = 3840;
-          mode.width = 2160;
+          mode.width = 3840;
+          mode.height = 2160;
           mode.refresh = 120.0;
           scale = 2.0;
           background-color = "#000000";
@@ -162,8 +162,8 @@
     {
       programs.niri.settings = {
         outputs."eDP-1" = {
-          mode.height = 2256;
-          mode.width = 1504;
+          mode.width = 2256;
+          mode.height = 1504;
           mode.refresh = 60.0;
           scale = 1.8;
           background-color = "#000000";
