@@ -9,6 +9,11 @@
     ({...}: {
       programs.nushell = {
         enable = true;
+        shellAliases = {
+          g = "git";
+          l = "ls -la";
+          ff = "fastfetch";
+        };
       };
 
       programs.starship = {

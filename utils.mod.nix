@@ -21,6 +21,7 @@
         usbutils
         handbrake
         ripgrep
+        fastfetch
       ];
     })
   ];
