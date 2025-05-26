@@ -11,7 +11,7 @@ my attempt at a declarative and functional system config
 | RAM       | 32GB      | 32GB    |
 | DISPLAY   | 13' 1080p | 32' 4K  |
 
-### addtl config
+### addtl stuff
 
 g80sd 4k @ 240hz needs additional setup\
 something about edid and displayid being blocked, idrk\
@@ -25,5 +25,8 @@ here's some details:\
 
 ### helpful stuff
 
+[sodiboo's setup](https://github.com/sodiboo/system)\
 [nix builtins](https://nix.dev/manual/nix/2.24/language/builtins.html)\
 [debug nix expressions](https://nixos-and-flakes.thiscute.world/best-practices/debugging)\
+[eww config](https://elkowar.github.io/eww/configuration.html)\
+[nix.dev](https://nix.dev/tutorials/nixos/)
