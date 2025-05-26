@@ -53,8 +53,8 @@
           gaps = 0;
           center-focused-column = "never";
           preset-column-widths = [
-            {proportion = 1.0 / 3.0;}
             {proportion = 1.0 / 2.0;}
+            {proportion = 1.0 / 3.0;}
             {proportion = 2.0 / 3.0;}
           ];
           focus-ring.enable = false;
@@ -82,6 +82,7 @@
           "Mod+E".action.spawn = "floorp";
           "Mod+D".action.spawn = ["bemenu-run" "-c"];
           "Mod+G".action = screenshot;
+          "Mod+Shift+E".action = quit;
           "XF86AudioRaiseVolume".action.spawn = [
             "wpctl"
             "set-volume"
@@ -111,8 +112,14 @@
 
           # window stuff
           "Mod+Q".action = close-window;
+          "Mod+C".action = center-column;
           "Mod+F".action = maximize-column;
+          "Mod+Shift+F".action = fullscreen-window;
+          "Mod+Ctrl+F".action = expand-column-to-available-width;
           "Mod+V".action = toggle-window-floating;
+          "Mod+R".action = switch-preset-column-width;
+          "Mod+Minus".action = set-column-width "-10%";
+          "Mod+Equal".action = set-column-width "+10%";
 
           # window navigation
           "Mod+H".action = focus-column-left;
