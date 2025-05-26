@@ -4,7 +4,7 @@
       programs.foot = {
         enable = true;
         settings = {
-          main.font = "Geist Mono:size=11";
+          main.font = "IBM Plex Mono: size=11";
           cursor.color = "16181a ffffff";
           colors = {
             alpha = 0;
