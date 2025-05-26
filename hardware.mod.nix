@@ -36,28 +36,35 @@ in
   {
     universal.modules = [
       chaotic.nixosModules.default
+      ({lib, ...}: {
+        networking.useDHCP = lib.mkDefault true;
+        time.hardwareClockInLocalTime = true;
+        boot.loader.efi.canTouchEfiVariables = true;
+        hardware.graphics.enableRedistributableFirmware = true;
+      })
+    ];
+
+    personal.modules = [
       ({
         pkgs,
         lib,
         ...
       }: {
-        networking.useDHCP = lib.mkDefault true;
-        time.hardwareClockInLocalTime = true;
-        boot.loader.efi.canTouchEfiVariables = true;
-      })
-    ];
-
-    personal.modules = [
-      ({pkgs, ...}: {
-        services.fwupd.enable = true;
         boot.kernelPackages = pkgs.linuxPackages_cachyos-rc;
+        chaotic.mesa-git.enable = true;
+
+        services.scx.enable = true;
+        services.scx.scheduler = "scx_lavd";
+        services.fwupd.enable = true;
         hardware = {
-          # if I do set up servers on here
-          # this should be fine since its on personal modules
-          graphics.enable = true;
-          graphics.enable32Bit = true;
-          bluetooth.enable = true;
+          amdgpu.initrd.enable = lib.mkDefault true;
+          graphics.enable = lib.mkDefault true;
+          graphics.enable32Bit = lib.mkDefault true;
+          graphics.extraPackages = with pkgs; [
+            amdvlk
+          ];
         };
+        services.xserver.videoDrivers = ["amdgpu"];
       })
     ];
   }
@@ -75,10 +82,6 @@ in
           useOSProber = true;
           efiSupport = true;
         };
-
-        services.scx.enable = true;
-        services.scx.scheduler = "scx_lavd";
-        chaotic.mesa-git.enable = true;
 
         boot.initrd.availableKernelModules = [
           "nvme"
@@ -106,10 +109,6 @@ in
       (fs.vfat "/boot" "/dev/disk/by-uuid/C5E0-C3F8" ["fmask=0077" "dmask=0077"])
       {
         boot.loader.systemd-boot.enable = true;
-
-        services.scx.enable = true;
-        services.scx.scheduler = "scx_lavd";
-        chaotic.mesa-git.enable = true;
 
         boot.initrd.availableKernelModules = [
           "nvme"
