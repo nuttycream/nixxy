@@ -1,6 +1,12 @@
 {...}: {
-  personal.home_modules = [
+  personal.modules = [
     ({pkgs, ...}: {
+      users.defaultUserShell = pkgs.nushell;
+    })
+  ];
+
+  personal.home_modules = [
+    ({...}: {
       programs.nushell = {
         enable = true;
       };
