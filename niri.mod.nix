@@ -80,7 +80,7 @@
           # app launcher
           "Mod+Return".action.spawn = "foot";
           "Mod+E".action.spawn = "firefox-nightly";
-          "Mod+D".action.spawn = ["bemenu-run" "-c"];
+          "Mod+D".action.spawn = "tofi-run";
           "Mod+G".action = screenshot;
           "Mod+Shift+E".action = quit;
           "XF86AudioRaiseVolume".action.spawn = [
