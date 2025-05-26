@@ -52,14 +52,28 @@
         layout = {
           gaps = 0;
           center-focused-column = "never";
+          default-column-width.proportion = 1.0 / 2.0;
           preset-column-widths = [
             {proportion = 1.0 / 2.0;}
             {proportion = 1.0 / 3.0;}
             {proportion = 2.0 / 3.0;}
           ];
-          focus-ring.enable = false;
           border.enable = false;
           shadow.enable = false;
+          focus-ring = {
+            enable = true;
+            width = 1;
+
+            # https://css-tricks.com/old-timey-terminal-styling/
+            # cant do radial
+            # this is good enuff
+            active.gradient = {
+              angle = 135;
+              from = "rgba(0, 150, 0, 0.75)";
+              to = "black";
+              relative-to = "window";
+            };
+          };
         };
 
         # niri supports shaders,
@@ -80,7 +94,7 @@
           # app launcher
           "Mod+Return".action.spawn = "foot";
           "Mod+E".action.spawn = "firefox-nightly";
-          "Mod+D".action.spawn = "tofi-run";
+          "Mod+D".action = spawn "bash" "-c" "tofi-run | xargs niri msg action spawn --";
           "Mod+G".action = screenshot;
           "Mod+Shift+E".action = quit;
           "XF86AudioRaiseVolume".action.spawn = [
@@ -155,7 +169,7 @@
           mode.width = 3840;
           mode.height = 2160;
           mode.refresh = 120.0;
-          scale = 2.0;
+          scale = 1.8;
           background-color = "#000000";
           position.x = 1280;
           position.y = 0;
