@@ -40,7 +40,7 @@ in
         networking.useDHCP = lib.mkDefault true;
         time.hardwareClockInLocalTime = true;
         boot.loader.efi.canTouchEfiVariables = true;
-        hardware.graphics.enableRedistributableFirmware = true;
+        hardware.enableRedistributableFirmware = true;
       })
     ];
 
