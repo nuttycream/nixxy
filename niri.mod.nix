@@ -79,7 +79,7 @@
         binds = with config.lib.niri.actions; {
           # app launcher
           "Mod+Return".action.spawn = "foot";
-          "Mod+E".action.spawn = "floorp";
+          "Mod+E".action.spawn = "firefox-nightly";
           "Mod+D".action.spawn = ["bemenu-run" "-c"];
           "Mod+G".action = screenshot;
           "Mod+Shift+E".action = quit;
