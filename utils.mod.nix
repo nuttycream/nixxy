@@ -21,7 +21,6 @@
         usbutils
         handbrake
         ripgrep
-        just
       ];
     })
   ];
