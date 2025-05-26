@@ -1,6 +1,11 @@
 {...}: {
   universal.modules = [
     ({...}: {
+      networking.networkmanager = {
+        enable = true;
+        wifi.powersave = true;
+      };
+
       services = {
         blueman.enable = true;
         openssh.enable = true;
