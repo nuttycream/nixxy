@@ -1,5 +1,6 @@
-{...}: {
-  personal.home_modules = [
+{nvf, ...}: {
+  personal.modules = [
+    nvf.nixosModules.default
     ({pkgs, ...}: {
       programs.nvf = {
         enable = true;
