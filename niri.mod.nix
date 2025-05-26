@@ -5,11 +5,13 @@
       programs.niri.enable = true;
       nixpkgs.overlays = [niri.overlays.niri];
       programs.niri.package = pkgs.niri-unstable;
+      services.gnome.gnome-keyring.enable = true;
       environment.variables.NIXOS_OZONE_WL = "1";
       environment.systemPackages = with pkgs; [
         wl-clipboard
         wayland-utils
         cage
+        swaybg
         xwayland-satellite
       ];
     })
