@@ -105,8 +105,8 @@ in
     # framework 13in amd 7040
     (config "lappy" "x86_64-linux" [
       (cpu "amd")
-      (fs.ext4 "/" "/dev/disk/by-uuid/ae99757b-283c-4ee1-be21-f219d9909a1d" null)
-      (fs.vfat "/boot" "/dev/disk/by-uuid/C5E0-C3F8" ["fmask=0077" "dmask=0077"])
+      (fs.ext4 "/" "/dev/disk/by-uuid/529a5f7b-6d83-4a08-b950-365153f6f523" null)
+      (fs.vfat "/boot" "/dev/disk/by-uuid/CB28-ADA4" ["fmask=0077" "dmask=0077"])
       {
         boot.loader.systemd-boot.enable = true;
 
