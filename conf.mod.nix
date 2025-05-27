@@ -22,6 +22,10 @@ in {
 
       time.timeZone = "America/Los_Angeles";
 
+      programs.nix-ld = {
+        enable = true;
+      };
+
       i18n.defaultLocale = "en_US.UTF-8";
       i18n.extraLocaleSettings = {
         LC_ADDRESS = "en_US.UTF-8";
