@@ -6,6 +6,7 @@
         wifi.powersave = true;
       };
 
+      security.rtkit.enable = true;
       services = {
         blueman.enable = true;
         openssh.enable = true;

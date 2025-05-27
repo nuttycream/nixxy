@@ -19,7 +19,6 @@ in {
         experimental-features = ["nix-command" "flakes"];
         trusted-users = ["root" "j"];
       };
-      security.rtkit.enable = true;
 
       time.timeZone = "America/Los_Angeles";
 
