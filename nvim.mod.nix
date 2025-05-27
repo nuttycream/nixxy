@@ -64,9 +64,6 @@
 
             presence.neocord = {
               enable = true;
-              setupOpts = {
-                show_time = false;
-              };
             };
 
             mini = {

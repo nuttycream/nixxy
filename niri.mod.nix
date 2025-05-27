@@ -4,7 +4,7 @@
     ({pkgs, ...}: {
       programs.niri.enable = true;
       nixpkgs.overlays = [niri.overlays.niri];
-      programs.niri.package = pkgs.niri-unstable;
+      programs.niri.package = pkgs.niri-stable;
       services.gnome.gnome-keyring.enable = true;
       environment.variables.NIXOS_OZONE_WL = "1";
       environment.systemPackages = with pkgs; [

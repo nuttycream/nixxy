@@ -10,6 +10,7 @@
       programs.nushell = {
         enable = true;
         shellAliases = {
+          j = "just";
           g = "git";
           l = "ls -la";
           ff = "fastfetch";
