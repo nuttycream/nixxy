@@ -182,6 +182,11 @@
               oil-nvim = {
                 enable = true;
                 setupOpts = {
+                  skip_confirm_for_simple_edits = true;
+                  columns = [
+                    "icon"
+                    "size"
+                  ];
                   view_options = {
                     show_hidden = true;
                   };
