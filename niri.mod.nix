@@ -50,7 +50,7 @@
         # ASSSS THETIC
         prefer-no-csd = true;
         layout = {
-          gaps = 0;
+          gaps = 6;
           center-focused-column = "never";
           default-column-width.proportion = 1.0 / 2.0;
           preset-column-widths = [
