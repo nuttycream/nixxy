@@ -5,7 +5,7 @@
         zoom-us
         nautilus
         zathura
-        legcord
+        vesktop
         pandoc
         yazi
       ];
