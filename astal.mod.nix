@@ -1,10 +1,14 @@
-{...}: {
-  personal.home_modules = [
+{
+  ags,
+  astal,
+  ...
+}: {
+  personal.modules = [
     ({...}: {
-      programs.eww = {
-        enable = true;
-        configDir = ./eww;
-      };
+      environment.systemPackages = [
+        ags.packages.x86_64-linux.default
+        astal.packages.x86_64-linux.default
+      ];
     })
   ];
 }
