@@ -9,5 +9,6 @@ in
   pkgs.mkShellNoCC {
     packages = with pkgs; [
       just
+      nix-output-monitor
     ];
   }
