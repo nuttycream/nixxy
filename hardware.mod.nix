@@ -51,17 +51,18 @@ in
         ...
       }: {
         boot.kernelPackages = pkgs.linuxPackages_cachyos-rc;
-        chaotic.mesa-git.enable = true;
+        # chaotic.mesa-git.enable = true;
 
         services.scx.enable = true;
         services.scx.scheduler = "scx_lavd";
         services.fwupd.enable = true;
+
         hardware = {
           amdgpu.initrd.enable = lib.mkDefault true;
           graphics.enable = lib.mkDefault true;
           graphics.enable32Bit = lib.mkDefault true;
           graphics.extraPackages = with pkgs; [
-            amdvlk
+            #amdvlk
           ];
         };
         services.xserver.videoDrivers = ["amdgpu"];
@@ -73,8 +74,8 @@ in
     # main desktop
     (config "desky" "x86_64-linux" [
       (cpu "amd")
-      (fs.ext4 "/" "/dev/disk/by-uuid/300ab82a-de51-4f81-84cf-52c706b94ff3" null)
-      (fs.vfat "/boot" "/dev/disk/by-uuid/5740-A46C" ["fmask=0077" "dmask=0077"])
+      (fs.ext4 "/" "/dev/disk/by-uuid/dd0f3541-993d-4e98-8029-a8b713c9828c" null)
+      (fs.vfat "/boot" "/dev/disk/by-uuid/99B2-E937" ["fmask=0077" "dmask=0077"])
       {
         boot.loader.grub = {
           enable = true;
@@ -98,7 +99,7 @@ in
 
         boot.binfmt.emulatedSystems = ["aarch64-linux"];
         boot.kernelParams = [
-          "amd_iommu=on"
+          #"amd_iommu=on"
         ];
       }
     ])
