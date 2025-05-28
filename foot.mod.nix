@@ -5,7 +5,7 @@
         enable = true;
         settings = {
           main.font = "IBM Plex Mono: size=11";
-          main.pad = "10x10";
+          main.pad = "10x5";
           cursor.color = "16181a ffffff";
           colors = {
             alpha = 0;

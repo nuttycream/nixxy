@@ -68,7 +68,7 @@
             # cant do radial
             # this is good enuff
             active.gradient = {
-              angle = 135;
+              angle = 180;
               from = "rgba(0, 150, 0, 0.75)";
               to = "black";
               relative-to = "window";
