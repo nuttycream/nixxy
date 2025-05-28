@@ -36,7 +36,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    astral = {
+    astal = {
       url = "github:aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -129,7 +129,7 @@
           nix-output-monitor
         ];
 
-        astralPackages = with inputs.astral.packages.x86_64-linux; [
+        astalPackages = with inputs.astal.packages.x86_64-linux; [
           battery
           bluetooth
           network
@@ -138,7 +138,7 @@
       in
         pkgs.mkShell {
           name = "nixxy";
-          packages = nativeBuildInputs ++ astralPackages;
+          packages = nativeBuildInputs ++ astalPackages;
         };
     };
 }

@@ -1,6 +1,6 @@
 {
   "nodes": {
-    "astral": {
+    "astal": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -518,7 +518,7 @@
     },
     "root": {
       "inputs": {
-        "astral": "astral",
+        "astal": "astal",
         "chaotic": "chaotic",
         "firefox-addons": "firefox-addons",
         "firefox-nightly": "firefox-nightly",
