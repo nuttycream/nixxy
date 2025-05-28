@@ -35,6 +35,11 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    astral = {
+      url = "github:aylur/astal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -113,5 +118,27 @@
     in {
       nixosConfigurations = configs;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+
+      devShells.x86_64-linux.default = let
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+        };
+
+        nativeBuildInputs = with pkgs; [
+          just
+          nix-output-monitor
+        ];
+
+        astralPackages = with inputs.astral.packages.x86_64-linux; [
+          battery
+          bluetooth
+          network
+          io
+        ];
+      in
+        pkgs.mkShell {
+          name = "nixxy";
+          packages = nativeBuildInputs ++ astralPackages;
+        };
     };
 }
