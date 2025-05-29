@@ -35,11 +35,6 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    astal = {
-      url = "github:aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -128,17 +123,10 @@
           just
           nix-output-monitor
         ];
-
-        astalPackages = with inputs.astal.packages.x86_64-linux; [
-          battery
-          bluetooth
-          network
-          io
-        ];
       in
         pkgs.mkShell {
           name = "nixxy";
-          packages = nativeBuildInputs ++ astalPackages;
+          packages = nativeBuildInputs;
         };
     };
 }
