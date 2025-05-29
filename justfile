@@ -1,8 +1,6 @@
 build hostname=`hostname`:
     #!/usr/bin/env bash
-    if git ls-files --others --exclude-standard | grep '\.mod\.nix$'; then \
-        git add **/*.mod.nix; \
-    fi
+    git ls-files --others --exclude-standard | grep '\.mod\.nix$' | xargs -r git add || true
     nom build .#nixosConfigurations.{{hostname}}.config.system.build.toplevel 
 
 switch hostname=`hostname`: build
