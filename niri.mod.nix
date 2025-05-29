@@ -71,6 +71,7 @@
               angle = 180;
               from = "rgba(0, 150, 0, 0.75)";
               to = "black";
+              in' = "oklch shorter hue";
               relative-to = "window";
             };
           };
