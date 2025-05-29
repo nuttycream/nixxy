@@ -94,6 +94,12 @@
               enable = true;
             };
 
+            treesitter.grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+              regex
+              kdl
+              yuck
+            ];
+
             languages = {
               # is this depcretaed or wut
               # enableLSP = true;
