@@ -26,12 +26,6 @@
       pkgs,
       ...
     }: {
-      # notif daemon
-      home.packages = with pkgs; [
-        dunst
-      ];
-      services.dunst.enable = true;
-
       programs.niri.settings = {
         # input shit
         input.keyboard.xkb.layout = "us";
