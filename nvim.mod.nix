@@ -59,6 +59,7 @@
                 "c"
                 "go"
                 "yuck"
+                "json"
               ];
             };
 
@@ -103,6 +104,14 @@
             languages = {
               # is this depcretaed or wut
               # enableLSP = true;
+
+              astro = {
+                enable = true;
+                format.enable = true;
+                lsp.enable = true;
+                treesitter.enable = true;
+                extraDiagnostics.enable = true;
+              };
 
               nix = {
                 enable = true;
