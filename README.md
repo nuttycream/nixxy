@@ -29,4 +29,5 @@ here's some details:\
 [nix builtins](https://nix.dev/manual/nix/2.24/language/builtins.html)\
 [debug nix expressions](https://nixos-and-flakes.thiscute.world/best-practices/debugging)\
 [eww config](https://elkowar.github.io/eww/configuration.html)\
-[nix.dev](https://nix.dev/tutorials/nixos/)
+[nix.dev](https://nix.dev/tutorials/nixos/)\
+[greetd/tuigreet](https://ryjelsum.me/homelab/greetd-session-choose/)
