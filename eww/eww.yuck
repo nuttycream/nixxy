@@ -1,13 +1,30 @@
-(defwindow panel
-           :monitor 0
-           :geometry (geometry :x "0%"
-                               :y "20px"
-                               :width "90%"
-                               :height "30px"
-                               :anchor "top center")
-           :stacking "fg"
-           :reserve (struts :distance "40px" :side "top")
-           :windowtype "dock"
-           :wm-ignore false
-  "panel")
+(defwindow sys_panel
+    :monitor 0 
+    :stacking "fg"
+    :windowtype "normal"
+    :wm-ignore true
+    :geometry (geometry 
+        :x "0%"
+        :y "10px"
+        :width "70%" 
+        :height "25px"
+        :anchor "bottom center")
+    (sys_panel_layout))
 
+(defwidget sys_panel_layout []
+    (box :class "sys_panel" :space-evenly true :orientation "h"
+        focused
+        time
+        network
+    ))
+
+(defpoll time :interval "10s"
+    "date '+%H:%M %b %d, %Y'")
+
+(defpoll network :interval "100s"
+    "nmcli -t -f NAME connection show --active | grep -v lo")
+
+;; deflisten wasn't updating
+;; prolly cause niri msg doesn't write maybe?
+(defpoll focused :interval "0.05s"
+    `niri msg focused-window | grep "Title" | cut -d'"' -f2 || true`)

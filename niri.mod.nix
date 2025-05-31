@@ -84,12 +84,22 @@
           {clip-to-geometry = true;}
         ];
 
+        spawn-at-startup = [
+          {
+            command = [
+              "${pkgs.eww}"
+              "daemon"
+            ];
+          }
+        ];
+
         # binds
         binds = with config.lib.niri.actions; {
           # app launcher
           "Mod+Return".action.spawn = "foot";
           "Mod+E".action.spawn = "firefox-nightly";
           "Mod+D".action = spawn "bash" "-c" "tofi-run | xargs niri msg action spawn --";
+          "Mod+W".action = spawn "eww" "open" "--toggle" "sys_panel";
           "Mod+G".action = screenshot;
           "Mod+Shift+E".action = quit;
           "XF86AudioRaiseVolume".action.spawn = [
