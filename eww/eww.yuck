@@ -7,34 +7,47 @@
         :x "0%"
         :y "200px"
         :width "300px" 
-        :height "350px"
+        :height "500px"
         :anchor "top center"
     )
     (sys_panel_layout))
 
 (defwidget sys_panel_layout []
     (box :class "sys_panel_border"
-        (box :class "sys_panel" :space-evenly false :orientation "v" :spacing 25
+        (box :class "sys_panel" :space-evenly false :orientation "v" :spacing 20
             uwu 
             focused
             (sound)
-            (gammastep)
+            (mem)
+            (cpu)
+            ;;(temp_debug)
+            (processes)
+            (disk)
             (network)
+            (gammastep)
             time)))
 
-(defpoll volume :interval "1s"
+(defpoll volume :interval "0.1s"
     "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}'")
 
-(defpoll muted :interval "1s"
+(defpoll muted :interval "0.1s"
     "wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 'true' || echo 'false'")
 
 (defwidget sound []
     (box :orientation "h" :space-evenly false :halign "center" :spacing 15
         (button :onclick "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"
             (label :text "Lower"))
-        (label :text "${muted == 'true' ? 'Muted' : 'Vol: ${volume}%'}")
+        (button :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+            (label :text "${muted == 'true' ? 'Muted' : 'Vol: ${volume}%'}"))
         (button :onclick "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"
             (label :text "Raise"))))
+
+;; https://elkowar.github.io/eww/expression_language.html
+(defwidget mem []
+    (box :orientation "h" :space-evenly false :halign "center" :spacing 20
+        (label :text "Ram: ${round(EWW_RAM.used_mem_perc, 1)}%")
+        (label :text "${round(EWW_RAM.used_mem / powi(1024, 3), 1)}/${
+            round(EWW_RAM.total_mem / powi(1024, 3), 1)}GB")))
 
 (defpoll gammastep_period :interval "10s"
     "gammastep -p 2>&1 | grep 'Period:' | cut -d' ' -f3")
@@ -67,6 +80,38 @@
 ;; prolly cause niri msg doesn't write maybe?
 (defpoll focused :interval "0.1s"
     `niri msg focused-window | grep "Title" | cut -d'"' -f2 | cut -c1-30 || echo "(˶˃ ᵕ ˂˶)"`)
+
+(defwidget temp_debug []
+    (label :text "${EWW_TEMPS}"))
+
+(defpoll cpu_usage :interval "2s"
+    "top -bn1 | grep 'Cpu(s)' | sed 's/.*, *\\([0-9.]*\\)%* id.*/\\1/' | awk '{print 100 - $1}'")
+
+(defpoll load_avg :interval "10s"
+    "uptime | awk -F'load average:' '{print $2}' | awk '{print $1}' | sed 's/,//'")
+
+(defwidget cpu []
+    (box :orientation "h" :space-evenly false :halign "center" :spacing 15
+        (label :text "CPU: ${round(cpu_usage, 1)}%")
+        (label :text "Load: ${load_avg}")
+        ;;(label :text "Temps: ${EWW_TEMPS["CPU"]}°")
+    ))
+
+(defpoll process_count :interval "5s"
+    "ps aux | wc -l")
+
+(defpoll program_count :interval "1s"
+    "niri msg windows | grep 'Window ID' | wc -l")
+
+(defwidget processes []
+    (box :orientation "h" :space-evenly false :halign "center" :spacing 20
+        (label :text "Procs: ${process_count}")
+        (label :text "Progs: ${program_count}")))
+
+(defwidget disk []
+    (box :orientation "h" :space-evenly false :halign "center" :spacing 20
+        (label :text "Root: ${round(EWW_DISK["/"].used_perc, 1)}%")
+        (label :text "${round(EWW_DISK["/"].used / powi(1024, 3), 1)}/${round(EWW_DISK["/"].total / powi(1024, 3), 1)}GB")))
 
 (defvar uwu "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⣿⣿⡆⠀⠀⢸⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⣾⣿⡆⠀
