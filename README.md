@@ -30,4 +30,5 @@ here's some details:\
 [debug nix expressions](https://nixos-and-flakes.thiscute.world/best-practices/debugging)\
 [eww config](https://elkowar.github.io/eww/configuration.html)\
 [nix.dev](https://nix.dev/tutorials/nixos/)\
-[greetd/tuigreet](https://ryjelsum.me/homelab/greetd-session-choose/)
+[greetd/tuigreet](https://ryjelsum.me/homelab/greetd-session-choose/)\
+[uwu ascii](https://emojicombos.com/uwu-ascii-art)
