@@ -2,6 +2,10 @@
 
 my attempt at a declarative and functional system config
 
+<p align="center">
+    <img src="https://i.imgur.com/Q9q7u94.jpeg">
+</p>
+
 ### hardware
 
 | component | lappy     | desky   |
