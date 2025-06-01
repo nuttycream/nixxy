@@ -4,11 +4,17 @@
   font-size: 14px;
 }
 
-.sys_panel {
-  background-color: #000000;
-  color: #FFFFFF;
-  padding: 5px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #ff9966;
+.sys_panel_border {
+  background: linear-gradient(180deg, rgba(0, 150, 0, 0.75), black);
+  padding: 1px;
 }
+
+.sys_panel {
+  color: #FFFFFF;
+  background-color: #000000;
+  padding: 4px;
+  // border-style: solid;
+  // border-width: 1px;
+  // border-color: "#009600";
+}
+
