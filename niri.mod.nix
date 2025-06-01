@@ -41,6 +41,8 @@
         cursor.hide-when-typing = true;
         cursor.hide-after-inactive-ms = 1000;
 
+        hotkey-overlay.skip-at-startup = true;
+
         # ASSSS THETIC
         prefer-no-csd = true;
         layout = {
@@ -91,6 +93,14 @@
               "daemon"
             ];
           }
+          {
+            command = [
+              "${pkgs.eww}"
+              "open"
+              "--toggle"
+              "sys_panel"
+            ];
+          }
         ];
 
         # binds
@@ -102,14 +112,13 @@
           "Mod+W".action = spawn "eww" "open" "--toggle" "sys_panel";
           "Mod+G".action = screenshot;
           "Mod+Shift+E".action = quit;
+
           "XF86AudioRaiseVolume".action.spawn = [
             "wpctl"
             "set-volume"
             "@DEFAULT_AUDIO_SINK@"
             "0.1+"
           ];
-
-          # xf86 funcs
           "XF86AudioLowerVolume".action.spawn = [
             "wpctl"
             "set-volume"
