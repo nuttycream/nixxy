@@ -89,15 +89,8 @@
         spawn-at-startup = [
           {
             command = [
-              "${pkgs.eww}"
-              "daemon"
-            ];
-          }
-          {
-            command = [
-              "${pkgs.eww}"
+              "eww"
               "open"
-              "--toggle"
               "sys_panel"
             ];
           }
