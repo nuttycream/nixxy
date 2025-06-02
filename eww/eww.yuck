@@ -7,82 +7,127 @@
         :x "0%"
         :y "200px"
         :width "300px" 
-        :height "500px"
+        :height "400px"
         :anchor "top center"
     )
     (sys_panel_layout))
 
 (defwidget sys_panel_layout []
     (box :class "sys_panel_border"
-        (box :class "sys_panel" :space-evenly false :orientation "v" :spacing 20
-            uwu 
-            focused
-            (sound)
-            (mem)
-            (cpu)
-            ;;(temp_debug)
-            (processes)
-            (disk)
-            (network)
-            (gammastep)
-            time)))
+        ;; for some reason odd number spacing
+        ;; looks strange on my 4k monitor
+        ;; like some sort of artifacting(?), 
+        ;; keep it at 8
+        (box :class "sys_panel" :space-evenly false :orientation "v" :spacing 8
+            (label :class "ascii" :text uwu :halign "center")
+            (separator)
 
-(defpoll volume :interval "0.1s"
+            (info_line :label "curr:" :value "${focused}")
+            (info_line :label "vol:" :value 
+                "${volume}%" 
+                :hint 
+                "[${muted == 'true' ? 'muted' : sink}]")
+
+            ;; (batt_debug)
+
+            (info_line :label "batt:" :value 
+                "${EWW_BATTERY != '' ? (EWW_BATTERY.BAT1.capacity != '' ? '${
+                    EWW_BATTERY.BAT1.capacity}%' : '') : 'on power'}"
+                :hint
+                "${EWW_BATTERY.BAT1.status ?: ''}")
+
+            ;; check if max == 1 for monitor LUL
+            (info_line :label "bright:" :value 
+                "${brightness.max == 1 ? 'on monitor' : '${
+                    round(brightness.current / brightness.max * 100, 0)}%'}"
+                :hint
+                "${brightness.max == 1 ? '' : '${
+                    brightness.current}/${brightness.max}'}")
+
+            (info_line :label "gamma:" :value 
+                "${gammastep_temp}" 
+                :hint 
+                "${gammastep_period}")
+
+            (info_line :label "ram:" :value 
+                "${round(EWW_RAM.used_mem_perc, 1)}%" 
+                :hint 
+                "${
+                    round(EWW_RAM.used_mem / powi(1024, 3), 1)}/${
+                    round(EWW_RAM.available_mem / powi(1024, 3), 1)}G")
+
+            (info_line :label "cpu:" :value 
+                "${round(cpu_usage, 1)}%" 
+                :hint 
+                "${load_avg}")
+
+            (info_line :label "proc:" :value 
+                "${window_count}/${process_count}")
+
+            (info_line :label "disk:" :value 
+                "${round(EWW_DISK['/'].used_perc, 1)}%" 
+                :hint 
+                "${
+                    round(EWW_DISK['/'].used / powi(1024, 3), 1)}/${
+                    round(EWW_DISK['/'].total / powi(1024, 3), 1)}G")
+
+            (info_line :label "net:" :value 
+                "${net_name}" 
+                :hint 
+                "${net_strength}%")
+
+            
+
+            (separator)
+            (label :class "time" :text time :halign "center"))))
+
+(defwidget separator []
+    (box :class "separator"))
+
+(defwidget info_line [label value ?hint]
+    (box :orientation "h" :space-evenly false :spacing 5 :halign "start"
+        (label :class "info_label" :text label :xalign 0)
+        (label :class "value" :text value)
+        (label :class "hint" :text hint :visible {hint != ""})))
+
+(defpoll volume :interval "1s"
     "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}'")
 
-(defpoll muted :interval "0.1s"
+(defpoll muted :interval "1s"
     "wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 'true' || echo 'false'")
 
-(defwidget sound []
-    (box :orientation "h" :space-evenly false :halign "center" :spacing 15
-        (button :onclick "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"
-            (label :text "Lower"))
-        (button :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-            (label :text "${muted == 'true' ? 'Muted' : 'Vol: ${volume}%'}"))
-        (button :onclick "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"
-            (label :text "Raise"))))
+(defpoll sink :interval "5s"
+    `wpctl status | grep '\*' | cut -d. -f2 | cut -d'[' -f1 | cut -c1-8 | head -1 | xargs || echo "(˶˃ ᵕ ˂˶)"`)
+
+(defpoll brightness :interval "5s"
+    :initial "{}"
+    `current=$(brightnessctl get 2>/dev/null || echo '0')
+     max=$(brightnessctl max 2>/dev/null || echo '1')
+     echo "{\\"current\\": $current, \\"max\\": $max}"`)
 
 ;; https://elkowar.github.io/eww/expression_language.html
-(defwidget mem []
-    (box :orientation "h" :space-evenly false :halign "center" :spacing 20
-        (label :text "Ram: ${round(EWW_RAM.used_mem_perc, 1)}%")
-        (label :text "${round(EWW_RAM.used_mem / powi(1024, 3), 1)}/${
-            round(EWW_RAM.total_mem / powi(1024, 3), 1)}GB")))
+;; (defwidget mem [])
 
-(defpoll gammastep_period :interval "10s"
-    "gammastep -p 2>&1 | grep 'Period:' | cut -d' ' -f3")
+(defpoll gammastep_period :interval "60s"
+    "gammastep -p 2>&1 | grep 'Period:' | cut -d' ' -f3 | head -1")
 
-(defpoll gammastep_temp :interval "10s"
-    "gammastep -p 2>&1 | grep 'Color temperature:' | cut -d' ' -f4")
+(defpoll gammastep_temp :interval "60s"
+    "gammastep -p 2>&1 | grep 'Color temperature:' | cut -d' ' -f4 | head -1")
 
-(defwidget gammastep []
-    (box :orientation "h" :space-evenly false :halign "center" :spacing 20
-        (label :text "Cycle: ${gammastep_period}")
-        (label :text "Temp: ${gammastep_temp}")))
 
-(defpoll time :interval "10s"
-    "date '+%H:%M %b %d, %Y'")
-
-(defpoll net_name :interval "100s"
-    "nmcli -t -f NAME connection show --active | grep -v lo")
-
-(defpoll net_strength :interval "100s"
-  :initial `N/A`
-  `nmcli -t -f SIGNAL,ACTIVE device wifi \
-    | awk -F':' '{if($2=="yes")print$1}'`)
-
-(defwidget network []
-    (box :orientation "h" :space-evenly false :halign "center" :spacing 20
-        (label :text "Net: ${net_name}")
-        (label :text "Sig: ${net_strength}%")))
+(defpoll time :interval "1"
+    "date '+%H:%M • %Y-%m-%d'")
 
 ;; deflisten wasn't updating
-;; prolly cause niri msg doesn't write maybe?
 (defpoll focused :interval "0.1s"
-    `niri msg focused-window | grep "Title" | cut -d'"' -f2 | cut -c1-30 || echo "(˶˃ ᵕ ˂˶)"`)
+    ;; hard cut off at 15
+    `niri msg focused-window | grep "Title" | cut -d'"' -f2 | cut -c1-15 || echo "(˶˃ ᵕ ˂˶)"`)
 
 (defwidget temp_debug []
     (label :text "${EWW_TEMPS}"))
+
+(defwidget batt_debug []
+    (label :text "${EWW_BATTERY}"))
 
 (defpoll cpu_usage :interval "2s"
     "top -bn1 | grep 'Cpu(s)' | sed 's/.*, *\\([0-9.]*\\)%* id.*/\\1/' | awk '{print 100 - $1}'")
@@ -90,32 +135,22 @@
 (defpoll load_avg :interval "10s"
     "uptime | awk -F'load average:' '{print $2}' | awk '{print $1}' | sed 's/,//'")
 
-(defwidget cpu []
-    (box :orientation "h" :space-evenly false :halign "center" :spacing 15
-        (label :text "CPU: ${round(cpu_usage, 1)}%")
-        (label :text "Load: ${load_avg}")
-        ;;(label :text "Temps: ${EWW_TEMPS["CPU"]}°")
-    ))
-
 (defpoll process_count :interval "5s"
     "ps aux | wc -l")
 
-(defpoll program_count :interval "1s"
+(defpoll window_count :interval "5s"
     "niri msg windows | grep 'Window ID' | wc -l")
 
-(defwidget processes []
-    (box :orientation "h" :space-evenly false :halign "center" :spacing 20
-        (label :text "Procs: ${process_count}")
-        (label :text "Progs: ${program_count}")))
+(defpoll net_name :interval "30s"
+    "nmcli -t -f NAME connection show --active | grep -v lo | head -1")
 
-(defwidget disk []
-    (box :orientation "h" :space-evenly false :halign "center" :spacing 20
-        (label :text "Root: ${round(EWW_DISK["/"].used_perc, 1)}%")
-        (label :text "${round(EWW_DISK["/"].used / powi(1024, 3), 1)}/${round(EWW_DISK["/"].total / powi(1024, 3), 1)}GB")))
+(defpoll net_strength :interval "30s"
+    :initial "N/A"
+    `nmcli -t -f SIGNAL,ACTIVE device wifi | awk -F':' '{if($2=="yes")print$1}' | head -1`)
 
-(defvar uwu "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⣿⣿⡆⠀⠀⢸⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⣾⣿⡆⠀
-⠀⠀⠀⣿⣿⡇⠀⠀⢸⣿⢰⣿⡆⠀⣾⣿⡆⠀⣾⣷ ⣿⣿⡇⠀⠀⣿⣿⡇⠀
-⠀⠀⠀⣿⣿⡇⠀⠀⢸⣿⠘⣿⣿⣤⣿⣿⣿⣤⣿⡇⢻⣿⡇⠀⠀⣿⣿⡇⠀
-⠀⠀⠀⣿⣿⡇⠀⠀⢸⡿⠀⢹⣿⣿⣿⣿⣿⣿⣿⠁⢸⣿⣇⠀⢀⣿⣿⠇⠀
-⠀⠀⠀⠙⢿⣷⣶⣶⡿⠁⠀⠈⣿⣿⠟⠀⣿⣿⠇⠀⠈⠻⣿⣶⣾⡿⠋⠀⠀")
+(defvar uwu "
+⣿⣿⡆⠀⠀⢸⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⣾⣿⡆⠀
+⣿⣿⡇⠀⠀⢸⣿⢰⣿⡆⠀⣾⣿⡆⠀⣾⣷ ⣿⣿⡇⠀⠀⣿⣿⡇⠀
+⣿⣿⡇⠀⠀⢸⣿⠘⣿⣿⣤⣿⣿⣿⣤⣿⡇⢻⣿⡇⠀⠀⣿⣿⡇⠀
+⣿⣿⡇⠀⠀⢸⡿⠀⢹⣿⣿⣿⣿⣿⣿⣿⠁⢸⣿⣇⠀⢀⣿⣿⠇⠀
+⠙⢿⣷⣶⣶⡿⠁⠀⠈⣿⣿⠟⠀⣿⣿⠇⠀⠈⠻⣿⣶⣾⡿⠋")

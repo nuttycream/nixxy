@@ -4,17 +4,60 @@
   font-size: 14px;
 }
 
+$green: #00ff00;
+$unhinted: #008000;
+$green-dark: #003300;
+$cyan: #00ffff;
+$yellow: #ffff00;
+$black: #000000;
+
 .sys_panel_border {
-  background: linear-gradient(180deg, rgba(0, 150, 0, 0.75), black);
-  padding: 1px;
+  // background: linear-gradient(180deg, rgba(0, 150, 0, 0.75), black);
+  background: $black;
+  border: 1px solid $green;
+  padding: 2px;
 }
 
 .sys_panel {
-  color: #FFFFFF;
-  background-color: #000000;
-  padding: 2px;
+  color: $green;
+  background-color: $black;
+  padding: 20px;
   // border-style: solid;
   // border-width: 1px;
   // border-color: "#009600";
 }
 
+.ascii {
+  font-size: 8px;
+  margin-bottom: 5px;
+}
+
+.separator {
+  border-top: 1px solid $green-dark;
+  margin: 12px 0;
+}
+
+.info_label {
+  color: $green;
+  min-width: 70px;
+  font-weight: normal;
+}
+
+.value {
+  color: $yellow;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.hint {
+  color: $unhinted;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.time {
+  color: $cyan;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+}
