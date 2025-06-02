@@ -3,10 +3,8 @@
 my attempt at a declarative and functional system config
 
 <p align="center">
-    <h2>desky</h2>
-    <img src="https://i.imgur.com/5fsP1y0.jpeg">
-    <h2>lappy</h2>
-    <img src="https://i.imgur.com/skKOGsO.png">
+    <img src="https://i.imgur.com/5fsP1y0.jpeg" width=50%>
+    <img src="https://i.imgur.com/skKOGsO.png" width=50%>
 </p>
 
 ### configs
