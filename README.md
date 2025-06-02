@@ -9,14 +9,18 @@ my attempt at a declarative and functional system config
     <img src="https://i.imgur.com/skKOGsO.png">
 </p>
 
-### hardware
+### configs
 
-| component | lappy     | desky   |
-| --------- | --------- | ------- |
-| CPU       | 7640U     | 9700X   |
-| GPU       | 700M      | 7900XTX |
-| RAM       | 32GB      | 32GB    |
-| DISPLAY   | 13' 1080p | 32' 4K  |
+The basis/foundation was ripped straight from
+[sodiboo/system](https://github.com/sodiboo/system) so special thanks to them.
+Sodiboo's setup termed his machines as elements which is pretty cool imo, but I
+went with something simpler.
+
+There are two main setups that I run everyday desky, and lappy. I also plan to
+also add a nix-darwin config for my mac mini - macky, later on. The idea is to
+have all module in root, I want to avoid nesting as much as possible, not only
+to reduce the amount of default.nix files I would need but also to reduce the
+amount of directories I have to navigate through in oil.nvim.
 
 ### addtl stuff
 
