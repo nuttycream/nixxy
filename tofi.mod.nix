@@ -7,7 +7,7 @@
           font = "IBM Plex Serif";
           height = "100%";
           width = "100%";
-          background-color = "#00000080";
+          background-color = "#00000095";
           border-width = 0;
           num-results = 10;
           outline-width = 0;
