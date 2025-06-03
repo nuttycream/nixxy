@@ -5,7 +5,7 @@
     :wm-ignore true
     :geometry (geometry 
         :x "0%"
-        :y "200px"
+        :y "15%"
         :width "300px" 
         :height "400px"
         :anchor "top center"
