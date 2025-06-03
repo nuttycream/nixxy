@@ -53,6 +53,7 @@
             spellcheck = {
               enable = true;
               programmingWordlist.enable = true;
+              # Im about to turn this shit off
               ignoredFiletypes = [
                 "rust"
                 "nix"
@@ -60,6 +61,7 @@
                 "go"
                 "yuck"
                 "json"
+                "astro"
               ];
             };
 
