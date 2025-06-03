@@ -13,6 +13,7 @@
         cage
         swaybg
         xwayland-satellite
+        grim
       ];
     })
   ];
@@ -21,11 +22,7 @@
   # we can add displays, system specific stuff
   # down below
   personal.home_modules = [
-    ({
-      config,
-      pkgs,
-      ...
-    }: {
+    ({config, ...}: {
       programs.niri.settings = {
         # input shit
         input.keyboard.xkb.layout = "us";
@@ -104,6 +101,9 @@
           "Mod+D".action = spawn "bash" "-c" "tofi-run | xargs niri msg action spawn --";
           "Mod+W".action = spawn "eww" "open" "--toggle" "sys_panel";
           "Mod+G".action = screenshot;
+          "Mod+T".action =
+            spawn "bash" "-c"
+            "grim -l 3 ~/Pictures/Screenshots/$(date +'%s_grim.png')";
           "Mod+Shift+E".action = quit;
 
           "XF86AudioRaiseVolume".action.spawn = [
@@ -135,12 +135,21 @@
           "Mod+Q".action = close-window;
           "Mod+C".action = center-column;
           "Mod+F".action = maximize-column;
+
           "Mod+Shift+F".action = fullscreen-window;
           "Mod+Ctrl+F".action = expand-column-to-available-width;
+
           "Mod+V".action = toggle-window-floating;
+          "Mod+Shift+V".action = switch-focus-between-floating-and-tiling;
+
           "Mod+R".action = switch-preset-column-width;
+          "Mod+Shift+R".action = switch-preset-window-height;
+          "Mod+Ctrl+R".action = reset-window-height;
+
           "Mod+Minus".action = set-column-width "-10%";
           "Mod+Equal".action = set-column-width "+10%";
+          "Mod+Shift+Minus".action = set-window-height "-10%";
+          "Mod+Shift+Equal".action = set-window-height "+10%";
 
           # window navigation
           "Mod+H".action = focus-column-left;
@@ -159,6 +168,17 @@
           "Mod+WheelScrollUp".cooldown-ms = 150;
           "Mod+WheelScrollDown".action = focus-workspace-down;
           "Mod+WheelScrollUp".action = focus-workspace-up;
+
+          #window workspace stuff
+          "Mod+1".action = focus-workspace 1;
+          "Mod+2".action = focus-workspace 2;
+          "Mod+3".action = focus-workspace 3;
+          "Mod+4".action = focus-workspace 4;
+          "Mod+5".action = focus-workspace 5;
+          "Mod+6".action = focus-workspace 6;
+          "Mod+7".action = focus-workspace 7;
+          "Mod+8".action = focus-workspace 8;
+          "Mod+9".action = focus-workspace 9;
         };
       };
     })
