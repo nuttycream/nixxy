@@ -3,8 +3,7 @@
 my attempt at a declarative and functional system config
 
 <p align="center">
-    <img src="https://i.imgur.com/5fsP1y0.jpeg" width=75%>
-    <img src="https://i.imgur.com/skKOGsO.png" width=75%>
+    <img src="https://i.imgur.com/AE21LpN.png" width=80%>
 </p>
 
 ## overview
