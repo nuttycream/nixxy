@@ -10,13 +10,11 @@ my attempt at a declarative and functional system config
 ## overview
 
 > [!NOTE]
-> im still a noob with nix, so pardon my shitty code and explanations
+> im still a noob with nix, so pardon my shitty code
 
-The basis for flake.nix was straight up ripped from
-[sodiboo/system's](https://github.com/sodiboo/system) nix config so special thanks
-to them. Sodiboo's setup named their machines as elements which is pretty cool
-imo, but I went with something simpler. You should also visit their repo for a
-better grasp of how this setup works.
+The basis for my flake.nix was straight up ripped from
+[sodiboo's](https://github.com/sodiboo/system) config so special thanks to them.
+You should also visit their repo for a better grasp of how this setup works.
 
 From my understanding, the flake scans for `.mod.nix` files and loads them
 through the `mapAttrsToList()` function where each module is loaded through
@@ -25,8 +23,8 @@ module. Each `.mod.nix` file can also define configs for different systems or
 inherit different _layers_.
 
 The key thing I definitely wanted is how inheritance is handled. Specifically
-configurations found in `_inheritance.mod.nix` and what it exactly it is used
-for. That's all handled by Sodiboo's merge function:
+configurations found in `_inheritance.mod.nix` and what it exactly its being
+used for. That's all handled by Sodiboo's merge function:
 
 ```nix
 merge = prev: this: {
@@ -37,17 +35,32 @@ merge = prev: this: {
 });
 ```
 
-Which then lets me use as a sort of 'layered' config setup where machines can
-inherit the configs they would need, I can also specify a config on a per
-machine level.\
-Example:
+Too be clear, I'm pretty sure this sort of combines configs rather than create
+inheritance. And when they are merged, the `modules` and `home_modules` arrays
+are concatted as well as the system specific config, I believe this is what
+`optionalAttrs` handles.
+
+The setup also uses `zipAttrsWith` to automatically combine all modules by
+machine name. So if multiple .mod.nix files define configs for the same machine
+like _desky_, they get automatically combined using the merge function through
+folding.
+
+This all sort of lets me use a _layered_ config setup where machines can inherit
+the configs they would need, I can also specify a config on a per machine level.
+
+In practice, this is what it would look like:
 
 ```nix
 desky = merge configs.universal configs.personal
 lappy = merge configs.universal configs.personal
 ```
 
-And declaring a new module is as simple as:
+This automatically creates and combines configs as like so:
+
+- modules -> `universal.modules ++ personal.modules`
+- home_modules -> `universal.home_modules ++ personal.home_modules`
+
+To put it all together, declaring a new module is as simple as:
 
 ```nix
 # some.mod.nix
@@ -78,11 +91,11 @@ And declaring a new module is as simple as:
 
 ## configs
 
-There are two main setups that I run everyday desky, and lappy - which is just
-desktop and laptop respectively. I also plan to also add a nix-darwin config for
-my mac mini - macky, later on. They both currently inherit personal, and
+There are two main setups that are configured here: _desky_, and _lappy_ - my
+desktop and laptop respectively. I also plan to add a nix-darwin config for my
+mac mini - _macky_, later on. They both currently inherit personal, and
 universal, ideally when I setup more machines, like macky for instance, it
-wouldn't need.
+wouldn't need to inherit both.
 
 All modules are in root, I want to avoid nesting as much as possible, to reduce
 both the amount of default.nix files I would need but also the amount of
@@ -92,25 +105,32 @@ difference between them.
 They both share:
 
 - [niri](https://github.com/YaLTeR/niri)
-  [niri-flake](https://github.com/sodiboo/niri-flake) - my window manager, lappy
-  and desky needs specific config for their monitors.
-- [greetd](https://git.sr.ht/~kennylevinsen/greetd) - my login manager,
-  previously I used ly but I got skill-issued so hard and gave up.
+  [niri-flake](https://github.com/sodiboo/niri-flake) - scrolling window
+  manager.
+- [greetd](https://git.sr.ht/~kennylevinsen/greetd) - login manager, previously
+  I used ly but I got skill-issued so hard and gave that up.
 - [foot](https://codeberg.org/dnkl/foot) - my terminal emulator, it's
-  responsive, and is relatively lightweight. I don't need no gpu acceleration
-  and fancy shader support!
-- [nushell](https://github.com/nushell/nushell) - my shell, it gives me good
-  looking output, that's all.
+  responsive, and is relatively lightweight. I don't need gpu acceleration and
+  fancy shader support!
+- [nushell](https://github.com/nushell/nushell) - current shell, it gives me
+  good looking output, that's all.
 - [nvf](https://github.com/NotAShelf/nvf) - neovim flake that abstracts a lot of
-  the setup out, it keeps my entire config in nix.
+  neovim setup and lua out, it keeps my entire config in nix.
 - [eww](https://github.com/elkowar/eww) - widgets, the system information panel
   that sits as a overlay on the center of the screen. This replaces waybar for
   me and it will also soon replace dunst as my notification daemon.
-- [dunst](https://github.com/dunst-project/dunst) - my notification daemon, its
+- [dunst](https://github.com/dunst-project/dunst) - notification daemon, its
   lightweight and pretty easy to config.
-- [tofi](https://github.com/philj56/tofi) - my app launcher, apparently it's
-  wicked fast, and yes i can attest to it, even with my minimal optimizations
-  (no direct path to font) it still launches super quick.
+- [tofi](https://github.com/philj56/tofi) - app launcher, it's wicked fast, even
+  with my minimal optimizations (no direct path to fonts) it still launches
+  super quick.
+
+Aesthetically I wanted to keep them relatively _simple_, _functional_ and _high
+contrast_. Not only to compliment my OLED monitor but also because it helps me
+concentrate without overly annoying colors or any other on-screen distractions.
+For this I went with very tiny gaps (0 vertical gaps), a tiny focus-ring, and no
+bar - system info like volume, brightness, etc are all handled on the sys_info
+panel that I can toggle on/off.
 
 In terms of hardware:
 
@@ -121,9 +141,10 @@ In terms of hardware:
 | RAM       | 32GB      | 32GB    |
 | DISPLAY   | 13' 1080p | 32' 4K  |
 
-desky currently has a dual boot setup with shitdows on two separate nvme drives,
-and it's why I need `grub` instead of `systemd` - makes it easier to setup a
-dual boot system using `os-prober` without having to manually specify disks.
+_desky_ currently has a dual boot setup with shitdows on two separate nvme
+drives, and it's why I need `grub` instead of `systemd` - makes it easier to
+setup a dual boot system using `os-prober` without having to manually specify
+disks.
 
 ## addtl stuff
 
