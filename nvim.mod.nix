@@ -220,7 +220,7 @@
 
             lsp = {
               enable = true;
-              formatOnSave = true;
+              formatOnSave = false;
               trouble = {
                 enable = true;
                 mappings = {
@@ -229,6 +229,7 @@
               };
 
               mappings = {
+                format = "<leader>f";
                 codeAction = "<leader>vca";
                 goToDeclaration = "gD";
                 goToDefinition = "gd";
