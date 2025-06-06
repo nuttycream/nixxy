@@ -176,7 +176,7 @@
               markdown = {
                 enable = true;
                 format.enable = true;
-                extensions.render-markdown-nvim.enable = true;
+                extensions.markview-nvim.enable = true;
               };
 
               ts = {
@@ -220,7 +220,7 @@
 
             lsp = {
               enable = true;
-              formatOnSave = false;
+              formatOnSave = true;
               trouble = {
                 enable = true;
                 mappings = {
