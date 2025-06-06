@@ -189,7 +189,7 @@
     {
       programs.niri.settings = {
         # g80sd on dp
-        outputs."DP-2" = {
+        outputs."DP-1" = {
           # even though the g80sd is a 240hz 4k monitor
           # im fucking locked at 120
           # manual edid workaround didn't work around....
