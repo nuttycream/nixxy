@@ -7,6 +7,10 @@
       };
 
       security.rtkit.enable = true;
+
+      # scan
+      hardware.sane.enable = true;
+
       services = {
         blueman.enable = true;
         openssh.enable = true;
