@@ -1,4 +1,6 @@
-{nvf, ...}: {
+{nvf, ...}: let
+  inherit (nvf.lib.nvim.dag) entryAfter;
+in {
   personal.modules = [
     nvf.nixosModules.default
     ({pkgs, ...}: {
@@ -33,6 +35,41 @@
               };
             };
 
+            # https://github.com/NotAShelf/nvf/issues/819
+            luaConfigRC.harper-ls = entryAfter ["lspconfig"] ''
+              require('lspconfig').harper_ls.setup {
+                  settings = {
+                    ["harper-ls"] = {
+                      userDictPath = "",
+                      fileDictPath = "",
+                      linters = {
+                        SpellCheck = true,
+                        SpelledNumbers = false,
+                        AnA = true,
+                        SentenceCapitalization = true,
+                        UnclosedQuotes = true,
+                        WrongQuotes = false,
+                        LongSentences = true,
+                        RepeatedWords = true,
+                        Spaces = true,
+                        Matcher = true,
+                        CorrectNumberSuffix = true
+                      },
+                      codeActions = {
+                        ForceStable = false
+                      },
+                      markdown = {
+                        IgnoreLinkTitle = false
+                      },
+                      diagnosticSeverity = "hint",
+                      isolateEnglish = false,
+                      dialect = "American",
+                      maxFileLength = 120000
+                    }
+                  }
+                }
+            '';
+
             extraLuaFiles = [
               #./nvim-plugin/lua/hl-buffer.lua
             ];
@@ -51,7 +88,7 @@
             };
 
             spellcheck = {
-              enable = true;
+              enable = false;
               programmingWordlist.enable = true;
               # Im about to turn this shit off
               ignoredFiletypes = [

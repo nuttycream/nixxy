@@ -22,6 +22,7 @@
         handbrake
         ripgrep
         fastfetch
+        harper
       ];
     })
   ];
