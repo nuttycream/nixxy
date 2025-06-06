@@ -10,6 +10,8 @@
           "wheel"
           "video"
           "max"
+          "scanner"
+          "lp"
         ];
       };
 
