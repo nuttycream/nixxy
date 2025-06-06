@@ -176,7 +176,7 @@
               markdown = {
                 enable = true;
                 format.enable = true;
-                extensions.markview-nvim.enable = true;
+                extensions.render-markdown-nvim.enable = true;
               };
 
               ts = {
