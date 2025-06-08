@@ -201,6 +201,16 @@
           position.x = 1280;
           position.y = 0;
         };
+
+        outputs."HDMI-A-1" = {
+          mode.width = 3840;
+          mode.height = 2160;
+          mode.refresh = 120.0;
+          scale = 1.8;
+          background-color = "#000000";
+          position.x = 1280;
+          position.y = 0;
+        };
       };
     }
   ];
