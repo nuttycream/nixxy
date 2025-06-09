@@ -6,5 +6,10 @@ build hostname=`hostname`:
 switch hostname=`hostname`: build
     sudo nixos-rebuild switch --flake .#{{hostname}} || exit 1
 
+update:
+    nix flake update
+    git add flake.lock
+    git commit -m "chore: nix flake update"
+
 fmt:
     nix fmt *
