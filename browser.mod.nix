@@ -1,8 +1,4 @@
-{
-  firefox-addons,
-  firefox-nightly,
-  ...
-}: {
+{firefox-nightly, ...}: {
   # get the nightly version
   personal.modules = [
     ({pkgs, ...}: {
