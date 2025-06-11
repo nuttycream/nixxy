@@ -15,6 +15,10 @@
           l = "ls -la";
           ff = "fastfetch";
         };
+        settings = {
+          show_banner = false;
+          buffer_editor = "nvim";
+        };
       };
 
       programs.starship = {
