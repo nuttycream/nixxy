@@ -14,6 +14,8 @@
           g = "git";
           l = "ls -la";
           ff = "fastfetch";
+          fg = "job unfreeze";
+          bg = "job spawn";
         };
         settings = {
           show_banner = false;
