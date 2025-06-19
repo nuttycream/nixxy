@@ -1,9 +1,9 @@
-{firefox-nightly, ...}: {
+{...}: {
   # get the nightly version
   personal.modules = [
     ({pkgs, ...}: {
       environment.systemPackages = [
-        firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
+        #firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
       ];
     })
   ];
