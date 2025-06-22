@@ -8,6 +8,7 @@
         userEmail = "issanutty@gmail.com";
         extraConfig = {
           push = {autoSetupRemote = true;};
+          init = {defaultBranch = "main";};
         };
         ignores = [
           "*.direnv"
