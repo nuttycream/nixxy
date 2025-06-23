@@ -195,6 +195,7 @@
           # manual edid workaround didn't work around....
           mode.width = 3840;
           mode.height = 2160;
+          #mode.refresh = 239.914;
           mode.refresh = 120.0;
           scale = 1.8;
           background-color = "#000000";
