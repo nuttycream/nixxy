@@ -23,6 +23,7 @@
         ripgrep
         fastfetch
         harper
+        jq
       ];
     })
   ];
