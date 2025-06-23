@@ -224,7 +224,7 @@
           mode.width = 2256;
           mode.height = 1504;
           mode.refresh = 60.0;
-          scale = 1.8;
+          scale = 1.5;
           background-color = "#000000";
           position.x = 1280;
           position.y = 0;
