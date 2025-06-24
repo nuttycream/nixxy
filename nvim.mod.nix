@@ -210,6 +210,13 @@ in {
                 treesitter.autotagHtml = true;
               };
 
+              css = {
+                enable = true;
+                lsp.enable = true;
+                treesitter.enable = true;
+                format.enable = true;
+              };
+
               markdown = {
                 enable = true;
                 format.enable = true;
