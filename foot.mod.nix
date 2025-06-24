@@ -1,10 +1,9 @@
 {...}: {
   personal.home_modules = [
-    ({...}: {
+    {
       programs.foot = {
         enable = true;
         settings = {
-          main.font = "IBM Plex Mono: size=14";
           main.pad = "10x5";
           cursor.color = "16181a ffffff";
           colors = {
@@ -29,6 +28,28 @@
           };
         };
       };
-    })
+    }
+  ];
+
+  desky.home_modules = [
+    {
+      programs.foot = {
+        enable = true;
+        settings = {
+          main.font = "IBM Plex Mono: size=12";
+        };
+      };
+    }
+  ];
+
+  lappy.home_modules = [
+    {
+      programs.foot = {
+        enable = true;
+        settings = {
+          main.font = "IBM Plex Mono: size=14";
+        };
+      };
+    }
   ];
 }
