@@ -225,6 +225,7 @@ in {
 
               ts = {
                 enable = true;
+                format.enable = true;
                 treesitter.enable = true;
               };
             };
