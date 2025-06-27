@@ -19,7 +19,7 @@
         lm_sensors
         pciutils
         usbutils
-        #handbrake
+        handbrake
         ripgrep
         fastfetch
         harper
