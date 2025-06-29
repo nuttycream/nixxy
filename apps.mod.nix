@@ -18,6 +18,7 @@
         blender
         gimp3
         obs-studio
+        inkscape
       ];
     })
   ];
