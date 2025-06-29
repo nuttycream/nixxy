@@ -33,6 +33,11 @@
         };
       };
 
+      programs.tmux = {
+        enable = true;
+        clock24 = true;
+      };
+
       programs.direnv = {
         enable = true;
         nix-direnv.enable = true;
