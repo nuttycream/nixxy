@@ -36,6 +36,7 @@ in {
             };
 
             # https://github.com/NotAShelf/nvf/issues/819
+            /*
             luaConfigRC.harper-ls = entryAfter ["lspconfig"] ''
               require('lspconfig').harper_ls.setup {
                   settings = {
@@ -69,6 +70,7 @@ in {
                   }
                 }
             '';
+            */
 
             extraLuaFiles = [
               #./nvim-plugin/lua/hl-buffer.lua
@@ -85,21 +87,6 @@ in {
               shiftwidth = 4;
               expandtab = true;
               smartindent = true;
-            };
-
-            spellcheck = {
-              enable = false;
-              programmingWordlist.enable = true;
-              # Im about to turn this shit off
-              ignoredFiletypes = [
-                "rust"
-                "nix"
-                "c"
-                "go"
-                "yuck"
-                "json"
-                "astro"
-              ];
             };
 
             presence.neocord = {
