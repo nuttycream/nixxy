@@ -184,10 +184,6 @@ in {
               go = {
                 enable = true;
                 lsp.enable = true;
-                format = {
-                  enable = true;
-                  type = "gofumpt";
-                };
                 treesitter.enable = true;
               };
 
@@ -248,6 +244,22 @@ in {
             globals = {
               editorconfig = true;
               mapleader = " ";
+            };
+
+            formatter.conform-nvim = {
+              enable = true;
+              setupOpts = {
+                formatters_by_ft = {
+                  rust = ["dx_fmt"];
+                };
+                formatters = {
+                  dx_fmt = {
+                    command = "dx";
+                    args = ["fmt" "--file" "$FILENAME"];
+                    stdin = false;
+                  };
+                };
+              };
             };
 
             lsp = {
