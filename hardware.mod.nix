@@ -53,8 +53,7 @@ in
         boot.kernelPackages = pkgs.linuxPackages_cachyos-rc;
         # chaotic.mesa-git.enable = true;
 
-        services.scx.enable = true;
-        services.scx.scheduler = "scx_lavd";
+        # services.scx.enable = true;
         services.fwupd.enable = true;
 
         hardware = {
