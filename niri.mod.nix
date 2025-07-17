@@ -73,6 +73,7 @@
         # niri supports shaders,
         # lets try something in the future, ya?
         animations = {
+          slowdown = 0.5;
           enable = true;
         };
 
