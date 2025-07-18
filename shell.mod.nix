@@ -16,7 +16,7 @@
           ff = "fastfetch";
           fg = "job unfreeze";
           bg = "job spawn";
-          fi = "nix flake init -t github:hercules-ci/flake-parts";
+          fi = "nix flake init -t github:akirak/flake-templates#minimal";
         };
         settings = {
           show_banner = false;
