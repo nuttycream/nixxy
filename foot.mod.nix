@@ -5,9 +5,9 @@
         enable = true;
         settings = {
           main.pad = "10x5";
-          cursor.color = "16181a ffffff";
           colors = {
             alpha = 0;
+            cursor = "16181a ffffff";
             foreground = "ffffff";
             regular0 = "16181a";
             regular1 = "ff6e5e";
