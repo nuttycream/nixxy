@@ -65,7 +65,7 @@
 
           set -g status-position top
           set -g status-justify centre
-          set -g status-style "fg=red"
+          set -g status-style "fg=green"
 
           set -g status-left ""
           set -g status-left-length 10
@@ -76,6 +76,7 @@
           set -g message-style "fg=yellow bg=red bold"
 
           set-option -g mouse on
+          setw -g mode-keys vi
           bind | split-window -h -c "#{pane_current_path}"
           bind - split-window -v -c "#{pane_current_path}"
 
