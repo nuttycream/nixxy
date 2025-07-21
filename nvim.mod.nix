@@ -149,7 +149,7 @@ in {
               rust = {
                 enable = true;
                 lsp.enable = true;
-                format.enable = true;
+                #format.enable = true;
                 treesitter.enable = true;
                 lsp.opts = ''
                   ['rust-analyzer'] = {
@@ -250,14 +250,7 @@ in {
               enable = true;
               setupOpts = {
                 formatters_by_ft = {
-                  rust = ["dx_fmt"];
-                };
-                formatters = {
-                  dx_fmt = {
-                    command = "dx";
-                    args = ["fmt" "--file" "$FILENAME"];
-                    stdin = false;
-                  };
+                  rust = ["dioxus" "rustfmt"];
                 };
               };
             };
