@@ -8,6 +8,7 @@
         vesktop
         pandoc
         yazi
+        slack
       ];
     })
   ];
