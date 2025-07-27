@@ -25,6 +25,8 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-cli.url = "github:nix-community/nixos-cli";
   };
 
   outputs = {

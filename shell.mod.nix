@@ -1,4 +1,6 @@
-{...}: {
+{nixos-cli, ...}: {
+  universal.modules = [nixos-cli.nixosModules.nixos-cli];
+
   personal.modules = [
     ({pkgs, ...}: {
       users.defaultUserShell = pkgs.nushell;
