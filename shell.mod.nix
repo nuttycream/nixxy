@@ -4,6 +4,9 @@
   personal.modules = [
     ({pkgs, ...}: {
       users.defaultUserShell = pkgs.nushell;
+      services.nixos-cli = {
+        enable = true;
+      };
     })
   ];
 
