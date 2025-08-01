@@ -39,6 +39,17 @@
     })
   ];
 
+  desky.modules = [
+    ({pkgs, ...}: {
+      # putting this here for now
+
+      systemd.packages = [pkgs.lact];
+      systemd.services.lactd.wantedBy = ["multi-user.target"];
+
+      hardware.amdgpu.overdrive.enable = true;
+    })
+  ];
+
   lappy.modules = [
     {
       services.power-profiles-daemon.enable = true;

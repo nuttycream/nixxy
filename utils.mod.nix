@@ -24,6 +24,7 @@
         fastfetch
         harper
         jq
+        lact
       ];
     })
   ];
