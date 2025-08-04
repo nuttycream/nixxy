@@ -6,6 +6,9 @@
       users.defaultUserShell = pkgs.nushell;
       services.nixos-cli = {
         enable = true;
+        config = {
+          apply.use_nom = true;
+        };
       };
     })
   ];
