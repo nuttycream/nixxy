@@ -113,7 +113,6 @@
 
         nativeBuildInputs = with pkgs; [
           just
-          nix-output-monitor
         ];
       in
         pkgs.mkShell {
