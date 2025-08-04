@@ -1,10 +1,8 @@
-build hostname=`hostname`:
-    #!/usr/bin/env bash
+add: 
     git ls-files --others --exclude-standard | grep '\.mod\.nix$' | xargs -r git add || true
-    nom build .#nixosConfigurations.{{hostname}}.config.system.build.toplevel 
 
-switch hostname=`hostname`: build
-    sudo nixos-rebuild switch --flake .#{{hostname}} || exit 1
+switch hostname=`hostname`: add
+    nixos apply .#{{hostname}} 
 
 update:
     nix flake update
