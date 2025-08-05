@@ -128,6 +128,6 @@ in
           "amdgpu.dcdebugmask=0x10"
         ];
       }
-      nixos-hardware.nixosModules.framework-13-7040-amd
+      # nixos-hardware.nixosModules.framework-13-7040-amd
     ])
   ]
