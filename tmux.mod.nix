@@ -1,4 +1,12 @@
 {...}: {
+  personal.modules = [
+    ({pkgs, ...}: {
+      environment.systemPackages = with pkgs; [
+        tmux-sessionizer
+      ];
+    })
+  ];
+
   personal.home_modules = [
     ({pkgs, ...}: {
       programs.tmux = {
