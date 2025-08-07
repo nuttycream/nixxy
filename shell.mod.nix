@@ -97,6 +97,11 @@
         '';
       };
 
+      programs.carapace = {
+        enable = true;
+        enableNushellIntegration = true;
+      };
+
       programs.starship = {
         enable = true;
         settings = {
