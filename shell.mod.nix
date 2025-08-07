@@ -30,6 +30,7 @@
           g = "git";
           l = "ls -la";
           t = "tmux new-session -A -s main";
+          ts = "tms switch";
           ff = "fastfetch";
           fg = "job unfreeze";
           bg = "job spawn";

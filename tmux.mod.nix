@@ -52,6 +52,11 @@
           setw -g mode-keys vi
           bind | split-window -h -c "#{pane_current_path}"
           bind - split-window -v -c "#{pane_current_path}"
+          bind c new-window -c "#{pane_current_path}"
+
+          bind C-j display-popup -E "tms switch"
+          bind C-w display-popup -E "tms windows"
+          bind C-r command-prompt -p "rename: " "run-shell 'tms rename %1'"
 
         '';
       };
