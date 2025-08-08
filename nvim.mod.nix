@@ -273,6 +273,8 @@ in {
                 goToType = "gt";
                 openDiagnosticFloat = "<leader>vd";
                 renameSymbol = "<leader>vrn";
+                listReferences = "<leader>vrr";
+                listWorkspaceSymbols = "<leader>vws";
               };
             };
 
