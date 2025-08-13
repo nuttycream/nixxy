@@ -230,6 +230,15 @@
           position.x = 1280;
           position.y = 0;
         };
+        outputs."DP-4" = {
+          mode.width = 1920;
+          mode.height = 1080;
+          mode.refresh = 100.0;
+          scale = 1;
+          background-color = "#000000";
+          position.x = 1280;
+          position.y = -1080;
+        };
       };
     }
   ];
