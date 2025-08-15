@@ -2,7 +2,12 @@ add:
     git ls-files --others --exclude-standard | grep '\.mod\.nix$' | xargs -r git add || true
 
 switch hostname=`hostname`: add
-    nixos apply .#{{hostname}} 
+    {{ if hostname != `hostname` { \
+        error("not the right host") \
+    } else { \
+        "" \
+    } }}
+    nixos apply .#{{hostname}} -y
 
 update:
     nix flake update
