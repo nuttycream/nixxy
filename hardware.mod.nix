@@ -73,8 +73,8 @@ in
     # main desktop
     (config "desky" "x86_64-linux" [
       (cpu "amd")
-      (fs.ext4 "/" "/dev/disk/by-uuid/dd0f3541-993d-4e98-8029-a8b713c9828c" null)
-      (fs.vfat "/boot" "/dev/disk/by-uuid/99B2-E937" ["fmask=0077" "dmask=0077"])
+      (fs.ext4 "/" "/dev/disk/by-uuid/763a43d4-0af9-499a-b9f0-f28a87951b2f" null)
+      (fs.vfat "/boot" "/dev/disk/by-uuid/F621-CA27" ["fmask=0077" "dmask=0077"])
       {
         boot.loader.grub = {
           enable = true;
