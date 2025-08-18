@@ -230,7 +230,7 @@
           position.x = 1280;
           position.y = 0;
         };
-        outputs."DP-4" = {
+        outputs."DP-3" = {
           mode.width = 1920;
           mode.height = 1080;
           mode.refresh = 100.0;
