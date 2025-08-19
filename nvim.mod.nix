@@ -133,7 +133,7 @@ in {
 
               astro = {
                 enable = true;
-                format.enable = true;
+                #format.enable = true;
                 lsp.enable = true;
                 treesitter.enable = true;
                 extraDiagnostics.enable = true;
