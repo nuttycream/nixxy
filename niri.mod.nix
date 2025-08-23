@@ -131,6 +131,18 @@
             "@DEFAULT_AUDIO_SOURCE@"
             "toggle"
           ];
+          "XF86MonBrightnessUp".action.spawn = [
+            "brightnessctl"
+            "--class=backlight"
+            "set"
+            "+10%"
+          ];
+          "XF86MonBrightnessDown".action.spawn = [
+            "brightnessctl"
+            "--class=backlight"
+            "set"
+            "10%-"
+          ];
 
           # window stuff
           "Mod+Q".action = close-window;
