@@ -216,6 +216,9 @@ in {
             autocomplete.blink-cmp = {
               enable = true;
               friendly-snippets.enable = true;
+              setupOpts = {
+                signature.enable = true;
+              };
             };
 
             comments.comment-nvim.enable = true;
@@ -258,6 +261,7 @@ in {
             lsp = {
               enable = true;
               formatOnSave = true;
+
               trouble = {
                 enable = true;
                 mappings = {
