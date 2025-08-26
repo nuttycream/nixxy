@@ -36,6 +36,7 @@
           bg = "job spawn";
           fit = "nix flake init -t github:akirak/flake-templates#minimal";
           fi = "nix flake init";
+          c = "cargo";
         };
         settings = {
           show_banner = false;
