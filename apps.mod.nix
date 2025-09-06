@@ -19,6 +19,7 @@
         gimp3
         obs-studio
         inkscape
+        pixelorama
       ];
     })
   ];
