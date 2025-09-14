@@ -211,6 +211,14 @@ in {
                 format.enable = true;
                 treesitter.enable = true;
               };
+
+              typst = {
+                enable = true;
+                format.enable = true;
+                lsp.enable = true;
+                treesitter.enable = true;
+                extensions.typst-preview-nvim.enable = true;
+              };
             };
 
             autocomplete.blink-cmp = {
