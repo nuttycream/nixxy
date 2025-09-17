@@ -153,11 +153,8 @@ in {
                 treesitter.enable = true;
                 lsp.opts = ''
                   ['rust-analyzer'] = {
-                    cargo = {allFeature = true},
+                    -- cargo = {allFeature = true},
                     checkOnSave = true,
-                    procMacro = {
-                      enable = true,
-                    },
                   },
                 '';
               };
