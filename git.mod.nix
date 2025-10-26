@@ -9,7 +9,10 @@
             name = "nuttyCream";
             email = "issanutty@gmail.com";
           };
-          core.editor = "nvim";
+          core = {
+            editor = "nvim";
+            fsmonitor = true;
+          };
 
           push = {autoSetupRemote = true;};
           init = {defaultBranch = "main";};
