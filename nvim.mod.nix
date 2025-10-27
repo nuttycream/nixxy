@@ -1,5 +1,4 @@
 {nvf, ...}: let
-  inherit (nvf.lib.nvim.dag) entryAfter;
 in {
   personal.modules = [
     nvf.nixosModules.default
@@ -24,10 +23,16 @@ in {
                     variant = "dark",
                     transparent = true,
                     italic_comments = true,
+                    highlights = {
+                      TreeSitterContext = { bg = "NONE" },
+                    },
                     extensions = {
                       fzflua = true,
+                      blinkcmp = true,
                       mini = true,
-                      whichkey = true
+                      whichkey = true,
+                      treesitter = true,
+                      treesittercontext = true,
                     }
                   }
                   vim.cmd('colorscheme cyberdream')
@@ -121,29 +126,32 @@ in {
               enable = true;
             };
 
-            treesitter.grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-              regex
-              kdl
-              yuck
-            ];
+            treesitter = {
+              enable = true;
+              context.enable = true;
+              grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+                regex
+                kdl
+                yuck
+                gitignore
+                toml
+                just
+                bash
+                nu
+                scss
+              ];
+            };
 
             languages = {
               # is this depcretaed or wut
               # enableLSP = true;
-
-              astro = {
-                enable = true;
-                #format.enable = true;
-                lsp.enable = true;
-                treesitter.enable = true;
-                extraDiagnostics.enable = true;
-              };
+              enableTreesitter = true;
 
               nix = {
                 enable = true;
                 format.enable = true;
                 lsp.enable = true;
-                lsp.server = "nixd";
+                lsp.servers = "nixd";
               };
 
               rust = {
