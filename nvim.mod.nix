@@ -129,17 +129,7 @@ in {
             treesitter = {
               enable = true;
               context.enable = true;
-              grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-                regex
-                kdl
-                yuck
-                gitignore
-                toml
-                just
-                bash
-                nu
-                scss
-              ];
+              grammars = pkgs.vimPlugins.nvim-treesitter.allGrammars;
             };
 
             languages = {
