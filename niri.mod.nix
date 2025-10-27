@@ -101,7 +101,7 @@
           "Mod+E".action.spawn = "firefox";
           "Mod+D".action = spawn "bash" "-c" "tofi-run | xargs niri msg action spawn --";
           "Mod+W".action = spawn "eww" "open" "--toggle" "sys_panel";
-          "Mod+G".action = screenshot;
+          "Mod+G".action.screenshot = [];
           "Mod+T".action =
             spawn "bash" "-c"
             "grim -l 3 ~/Pictures/Screenshots/$(date +'%s_grim.png')";
