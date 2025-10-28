@@ -157,6 +157,9 @@ here's some details:\
 [nixos issue](https://discourse.nixos.org/t/copying-custom-edid/31593)\
 [drm kernel commit](https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/e79ce1639a865d93fa8c27b515e8165c60131c9b)
 
+UPDATE: I had to 'overclock' my amdgpu, specifically set it to the
+`Highest Clocks` option on `lact`
+
 ## helpful stuff
 
 [sodiboo's setup](https://github.com/sodiboo/system)\
