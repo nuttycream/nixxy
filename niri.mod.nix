@@ -14,7 +14,9 @@
         swaybg
         xwayland-satellite
         grim
+        swaylock
       ];
+      security.pam.services.swaylock = {};
     })
   ];
 
@@ -250,6 +252,19 @@
           background-color = "#000000";
           position.x = 1280;
           position.y = -1080;
+        };
+      };
+
+      # idc if my desktop doesnt have swaylock
+      programs.swaylock = {
+        enable = true;
+        settings = {
+          color = "000000";
+          font-size = 24;
+          indicator-idle-visible = false;
+          indicator-radius = 100;
+          line-color = "ffffff";
+          show-failed-attempts = true;
         };
       };
     }
