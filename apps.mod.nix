@@ -8,6 +8,8 @@
         pandoc
         yazi
         slack
+        asciinema
+        asciinema-agg
       ];
     })
   ];
