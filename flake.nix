@@ -27,6 +27,7 @@
     };
 
     nixos-cli.url = "github:nix-community/nixos-cli/main";
+    gai.url = "github:cube-cult/gai/main";
   };
 
   outputs = {

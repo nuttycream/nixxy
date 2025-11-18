@@ -1,5 +1,11 @@
-{nixos-cli, ...}: {
-  universal.modules = [nixos-cli.nixosModules.nixos-cli];
+{
+  nixos-cli,
+  gai,
+  ...
+}: {
+  universal.modules = [
+    nixos-cli.nixosModules.nixos-cli
+  ];
 
   personal.modules = [
     ({pkgs, ...}: {
@@ -7,6 +13,8 @@
         pkgs.nix-output-monitor
         pkgs.nvd
         pkgs.fish
+        gai.packages.${pkgs.system}.default
+        pkgs.openssl
       ];
 
       services.nixos-cli = {
