@@ -141,7 +141,7 @@ in {
                 enable = true;
                 format.enable = true;
                 lsp.enable = true;
-                lsp.servers = "nixd";
+                lsp.servers = ["nixd"];
               };
 
               rust = {
