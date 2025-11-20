@@ -192,11 +192,11 @@
         "sussg": "sussg"
       },
       "locked": {
-        "lastModified": 1763608097,
-        "narHash": "sha256-ByuJ6spJGDGSvlb6vx7kaL6Li8/b3YhKX67SX+PtuqY=",
+        "lastModified": 1763632181,
+        "narHash": "sha256-O/B7hMIm+PjQLpbLiVS1JRtj4Gd+7V1jLjTV3TvfBoY=",
         "owner": "cube-cult",
         "repo": "gai",
-        "rev": "f259bf140ffb2a42b35738028bbee496737eac4d",
+        "rev": "4d240032db0fb3ff0acb7782bc1e5d602cf947ea",
         "type": "github"
       },
       "original": {
@@ -393,11 +393,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1762988082,
-        "narHash": "sha256-vG6oQXdKjBE6VQME1QoSqKP9KVynnu/Fl8WDYh7fSOM=",
+        "lastModified": 1763614080,
+        "narHash": "sha256-m7nF7woex4VspyDSAXjQvm7NvTyRgj8aQCE+h4VP17s=",
         "owner": "nix-community",
         "repo": "nixos-cli",
-        "rev": "9dbe10616aad6b6f92519253ecd9579c1dcb9c6a",
+        "rev": "64f732999f8a9ffeac94cace3cb91535d4cc7571",
         "type": "github"
       },
       "original": {
