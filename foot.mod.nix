@@ -51,7 +51,7 @@
       programs.foot = {
         enable = true;
         settings = {
-          main.font = "IBM Plex Mono: size=11";
+          main.font = "Commit Mono: size=11";
         };
       };
     }
