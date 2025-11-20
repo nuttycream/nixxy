@@ -9,9 +9,8 @@
       virtualisation = {
         libvirtd.enable = true;
         spiceUSBRedirection.enable = true;
-        podman = {
+        docker = {
           enable = true;
-          dockerCompat = true;
         };
       };
     })
