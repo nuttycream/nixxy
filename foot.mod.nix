@@ -4,6 +4,10 @@
       programs.foot = {
         enable = true;
         settings = {
+          cursor = {
+            style = "underline";
+            blink = "yes";
+          };
           main.pad = "10x5";
           colors = {
             alpha = 0;
