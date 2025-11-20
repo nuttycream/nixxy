@@ -13,6 +13,12 @@ in {
               vim.diagnostic.config({
                 virtual_text = { current_line = true }
               })
+
+              vim.api.nvim_create_autocmd("VimLeave", {
+                callback = function()
+                  vim.cmd("set guicursor=a:hor20")  
+                end,
+              })
             '';
 
             extraPlugins = {
