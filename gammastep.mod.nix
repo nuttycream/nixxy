@@ -14,7 +14,7 @@
   lappy.home_modules = [
     ({...}: {
       services.gammastep = {
-        enable = true;
+        enable = false;
         temperature.night = 1500;
         provider = "manual";
         latitude = 38.0;
