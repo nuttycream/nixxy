@@ -51,7 +51,7 @@
       programs.foot = {
         enable = true;
         settings = {
-          main.font = "Commit Mono: size=11";
+          main.font = "CommitMono: size=11";
         };
       };
     }

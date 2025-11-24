@@ -7,6 +7,7 @@
         ibm-plex
         maple-mono.NF-unhinted
         domine
+        commit-mono
         nerd-fonts.commit-mono
       ];
     })
