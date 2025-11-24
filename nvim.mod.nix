@@ -16,7 +16,7 @@ in {
 
               vim.api.nvim_create_autocmd("VimLeave", {
                 callback = function()
-                  vim.cmd("set guicursor=a:hor20")  
+                  vim.cmd("set guicursor=a:hor20")
                 end,
               })
             '';
@@ -145,7 +145,7 @@ in {
 
               nix = {
                 enable = true;
-                format.enable = true;
+                format.enable = false;
                 lsp.enable = true;
                 lsp.servers = ["nixd"];
               };
