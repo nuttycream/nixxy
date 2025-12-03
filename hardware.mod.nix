@@ -50,7 +50,7 @@ in
         lib,
         ...
       }: {
-        boot.kernelPackages = pkgs.linuxPackages_cachyos-rc;
+        boot.kernelPackages = pkgs.linuxPackages_latest;
         # chaotic.mesa-git.enable = true;
 
         # services.scx.enable = true;
