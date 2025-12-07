@@ -1,6 +1,11 @@
 {...}: {
   personal.home_modules = [
     ({...}: {
+      programs.lazygit = {
+        enable = true;
+        enableNushellIntegration = true;
+      };
+
       programs.git = {
         enable = true;
         lfs.enable = true;
