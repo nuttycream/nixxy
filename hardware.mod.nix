@@ -1,5 +1,4 @@
 {
-  chaotic,
   nixos-hardware,
   ...
 }: let
@@ -35,7 +34,6 @@
 in
   {
     universal.modules = [
-      chaotic.nixosModules.default
       ({lib, ...}: {
         networking.useDHCP = lib.mkDefault true;
         time.hardwareClockInLocalTime = true;
@@ -51,18 +49,13 @@ in
         ...
       }: {
         boot.kernelPackages = pkgs.linuxPackages_latest;
-        # chaotic.mesa-git.enable = true;
 
-        # services.scx.enable = true;
         services.fwupd.enable = true;
 
         hardware = {
           amdgpu.initrd.enable = lib.mkDefault true;
           graphics.enable = lib.mkDefault true;
           graphics.enable32Bit = lib.mkDefault true;
-          graphics.extraPackages = with pkgs; [
-            #amdvlk
-          ];
         };
         services.xserver.videoDrivers = ["amdgpu"];
       })
