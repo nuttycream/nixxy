@@ -10,7 +10,6 @@
         slack
         asciinema
         asciinema-agg
-        tailscale
       ];
     })
   ];
