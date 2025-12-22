@@ -4,6 +4,7 @@
     ({pkgs, ...}: {
       environment.systemPackages = [
         #firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
+        pkgs.chromium
       ];
     })
   ];
