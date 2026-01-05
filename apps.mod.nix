@@ -4,7 +4,8 @@
       environment.systemPackages = with pkgs; [
         nautilus
         zathura
-        vesktop
+        #vesktop
+        legcord
         pandoc
         yazi
         slack
