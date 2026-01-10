@@ -25,6 +25,7 @@
         harper
         jq
         lact
+        gitui
       ];
     })
   ];
