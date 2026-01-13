@@ -2,7 +2,8 @@
   description = "nixxy";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    #nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/cad22e7d996aea55ecab064e84834289143e44a0";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
@@ -22,7 +23,7 @@
     };
 
     nixos-cli.url = "github:nix-community/nixos-cli/main";
-    gai.url = "github:cube-cult/gai/main";
+    gai.url = "path:/home/j/gai";
   };
 
   outputs = {
