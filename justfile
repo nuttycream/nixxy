@@ -7,7 +7,7 @@ switch hostname=`hostname`: add
     } else { \
         "" \
     } }}
-    nixos apply .#{{hostname}} -y
+    nixos apply .#{{hostname}} -y --local-root
 
 update:
     nix flake update

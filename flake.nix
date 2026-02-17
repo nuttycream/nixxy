@@ -23,7 +23,7 @@
     };
 
     nixos-cli.url = "github:nix-community/nixos-cli/main";
-    gai.url = "path:/home/j/gai";
+    gai.url = "github:cube-cult/gai/main";
   };
 
   outputs = {
@@ -47,12 +47,7 @@
 
       # load the mod.nix files
       # note: git add on new mod.nix files
-      read_modules =
-        filterAttrs (
-          name: type:
-            type == "regular" && hasSuffix ".mod.nix" name
-        )
-        dir;
+      read_modules = filterAttrs (name: type: type == "regular" && hasSuffix ".mod.nix" name) dir;
 
       # ripped from
       # https://github.com/sodiboo/system/blob/main/flake.nix#L96C7-L103C12
@@ -65,12 +60,7 @@
           system = prev.system or this.system;
         });
 
-      all_modules =
-        mapAttrsToList (
-          name: _:
-            (import "${self}/${name}") params
-        )
-        read_modules;
+      all_modules = mapAttrsToList (name: _: (import "${self}/${name}") params) read_modules;
 
       raw_configs' =
         builtins.zipAttrsWith (

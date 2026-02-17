@@ -1,7 +1,7 @@
 {
-nixos-cli,
-gai,
-...
+  nixos-cli,
+  gai,
+  ...
 }: {
   universal.modules = [
     nixos-cli.nixosModules.nixos-cli

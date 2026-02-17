@@ -2,7 +2,7 @@
   personal.home_modules = [
     ({pkgs, ...}: {
       home.packages = with pkgs; [
-        ffmpeg-full
+        #ffmpeg-full
         yt-dlp
         mpv
         vlc

@@ -1,7 +1,4 @@
-{
-  nixos-hardware,
-  ...
-}: let
+{nixos-hardware, ...}: let
   config = name: system: additional: {
     inherit name;
     value = {
