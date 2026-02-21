@@ -70,16 +70,16 @@ To put it all together, declaring a new module is as simple as:
             ...
         })
     ];
-    
+
     # and/or
     personal.modules = [{
         ...
     }];
-    
+
     # for specific hosts
     lappy.modules = [];
     desky.modules = [];
-    
+
     # same goes for home_modules
     universal.home_modules = [];
     personal.home_modules = [];
@@ -113,8 +113,6 @@ They both share:
   fancy shader support!
 - [nushell](https://github.com/nushell/nushell) - current shell, it gives me
   good looking output, that's all.
-- [nvf](https://github.com/NotAShelf/nvf) - neovim flake that abstracts a lot of
-  neovim setup and lua out, it keeps my entire config in nix.
 - [eww](https://github.com/elkowar/eww) - widgets, the system information panel
   that sits as a overlay on the center of the screen. This replaces waybar for
   me and it will also soon replace dunst as my notification daemon.

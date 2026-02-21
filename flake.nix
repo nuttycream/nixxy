@@ -17,11 +17,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvf = {
-      url = "github:notashelf/nvf/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixos-cli.url = "github:nix-community/nixos-cli/main";
     gai.url = "github:cube-cult/gai/main";
   };
