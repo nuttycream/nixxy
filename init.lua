@@ -16,7 +16,6 @@ vim.opt.undofile = true
 vim.diagnostic.config({
 	virtual_text = { current_line = true },
 })
-
 vim.api.nvim_create_autocmd("VimLeave", {
 	callback = function()
 		vim.cmd("set guicursor=a:hor20")
@@ -42,6 +41,8 @@ require("cyberdream").setup({
 	italic_comments = true,
 	extensions = {
 		fzflua = true,
+		mini = true,
+		blinkcmp = true,
 		treesitter = true,
 	},
 })
@@ -72,6 +73,11 @@ require("blink.cmp").setup({
 			"snippets",
 			"buffer",
 		},
+	},
+	keymap = {
+		preset = "enter",
+		["<Tab>"] = { "select_next", "fallback" },
+		["<S-Tab>"] = { "select_prev", "fallback" },
 	},
 })
 
