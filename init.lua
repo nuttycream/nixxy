@@ -27,7 +27,6 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 require("cyberdream").setup({
 	variant = "dark",
-	cache = true,
 	transparent = true,
 	italic_comments = true,
 	extensions = {
@@ -92,7 +91,7 @@ require("mini.snippets").setup({
 
 require("mini.completion").setup({
 	lsp_completion = {
-		source_func = "omnifunc",
+		source_func = "completefunc",
 		auto_setup = true,
 	},
 })
