@@ -1,12 +1,11 @@
-vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.opt.nu = false
+vim.opt.relativenumber = false
+vim.opt.signcolumn = "yes"
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-
-vim.opt.signcolumn = "yes"
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -25,69 +24,93 @@ vim.api.nvim_create_autocmd("VimLeave", {
 vim.g.mapleader = " "
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
-
-vim.keymap.set("n", "<leader>pf", function()
-	require("fzf-lua").files()
-end)
-
-vim.keymap.set("n", "<leader>ps", function()
-	require("fzf-lua").live_grep()
-end)
 
 require("cyberdream").setup({
 	variant = "dark",
+	cache = true,
 	transparent = true,
 	italic_comments = true,
 	extensions = {
-		fzflua = true,
 		mini = true,
-		blinkcmp = true,
 		treesitter = true,
 	},
 })
 vim.cmd("colorscheme cyberdream")
 
-require("oil").setup({
-	skip_confirm_for_simple_edits = true,
-	columns = { "icon", "size" },
-	view_options = {
-		show_hidden = true,
+vim.api.nvim_set_hl(0, "Pmenu", {
+	bg = "#16181a",
+	fg = "#ffffff",
+})
+
+require("mini.pick").setup()
+
+vim.keymap.set("n", "<leader>pf", function()
+	MiniPick.builtin.files()
+end)
+
+vim.keymap.set("n", "<leader>ps", function()
+	MiniPick.builtin.grep_live()
+end)
+
+require("mini.icons").setup()
+require("mini.indentscope").setup()
+
+require("mini.pairs").setup()
+
+require("mini.files").setup({
+	mappings = {
+		close = "<ESC>",
+		go_in_plus = "<Enter>",
+	},
+	windows = {
+		max_number = 1,
+		preview = true,
 	},
 })
 
-require("fzf-lua").setup({
-	winopts = {
-		border = "none",
-	},
-})
+vim.keymap.set("n", "<leader>pv", function()
+	MiniFiles.open(vim.api.nvim_buf_get_name(0))
+end)
 
-require("gitsigns").setup()
-
-require("blink.cmp").setup({
-	signature = { enabled = true },
-	sources = {
-		default = {
-			"lsp",
-			"path",
-			"snippets",
-			"buffer",
+require("mini.diff").setup({
+	view = {
+		style = "sign",
+		signs = {
+			add = "+",
+			change = "~",
+			delete = "-",
 		},
 	},
-	keymap = {
-		preset = "enter",
-		["<Tab>"] = { "select_next", "fallback" },
-		["<S-Tab>"] = { "select_prev", "fallback" },
+})
+
+local gen_loader = require("mini.snippets").gen_loader
+require("mini.snippets").setup({
+	snippets = {
+		gen_loader.from_lang(),
 	},
 })
+
+require("mini.completion").setup({
+	lsp_completion = {
+		source_func = "omnifunc",
+		auto_setup = true,
+	},
+})
+
+vim.keymap.set("i", "<CR>", function()
+	return vim.fn.pumvisible() == 1 and "<C-y>" or "<CR>"
+end, { expr = true })
+
+vim.keymap.set("i", "<Tab>", function()
+	return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
+end, { expr = true })
+
+vim.keymap.set("i", "<S-Tab>", function()
+	return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
+end, { expr = true })
 
 vim.lsp.config("*", {
 	root_markers = { ".git" },
-})
-
-vim.lsp.config("lua_ls", {
-	cmd = { "lua-language-server" },
-	filetypes = { "lua" },
 })
 
 vim.lsp.config("nixd", {
@@ -138,6 +161,3 @@ require("conform").setup({
 		markdown = { "prettierd" },
 	},
 })
-
-require("mini.icons").setup()
-require("mini.indentscope").setup()
