@@ -18,9 +18,9 @@
           pkgs.openssl
         ];
 
-        services.nixos-cli = {
+        programs.nixos-cli = {
           enable = true;
-          config = {
+          settings = {
             use_nvd = true;
             apply.use_nom = true;
           };
