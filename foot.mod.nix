@@ -9,7 +9,7 @@
             blink = "yes";
           };
           main.pad = "10x5";
-          colors = {
+          colors-dark = {
             alpha = 0;
             cursor = "16181a ffffff";
             foreground = "ffffff";
