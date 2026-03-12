@@ -31,6 +31,7 @@ require("cyberdream").setup({
 	italic_comments = true,
 	extensions = {
 		mini = true,
+		fzflua = true,
 		treesitter = true,
 	},
 })
@@ -41,35 +42,34 @@ vim.api.nvim_set_hl(0, "Pmenu", {
 	fg = "#ffffff",
 })
 
-require("mini.pick").setup()
-
-vim.keymap.set("n", "<leader>pf", function()
-	MiniPick.builtin.files()
-end)
-
-vim.keymap.set("n", "<leader>ps", function()
-	MiniPick.builtin.grep_live()
-end)
-
 require("mini.icons").setup()
 require("mini.indentscope").setup()
 
 require("mini.pairs").setup()
 
-require("mini.files").setup({
-	mappings = {
-		close = "<ESC>",
-		go_in_plus = "<Enter>",
-	},
-	windows = {
-		max_number = 1,
-		preview = true,
+require("oil").setup({
+	skip_confirm_for_simple_edits = true,
+	columns = { "icon", "size" },
+	view_options = {
+		show_hidden = true,
 	},
 })
 
-vim.keymap.set("n", "<leader>pv", function()
-	MiniFiles.open(vim.api.nvim_buf_get_name(0))
+require("fzf-lua").setup({
+	winopts = {
+		border = "none",
+	},
+})
+
+vim.keymap.set("n", "<leader>pf", function()
+	require("fzf-lua").files()
 end)
+
+vim.keymap.set("n", "<leader>ps", function()
+	require("fzf-lua").live_grep()
+end)
+
+vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
 
 require("mini.diff").setup({
 	view = {

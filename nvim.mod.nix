@@ -10,6 +10,8 @@
           nvim-treesitter.withAllGrammars
           conform-nvim
           mini-nvim
+          oil-nvim
+          fzf-lua
         ];
 
         extraPackages = with pkgs; [
