@@ -49,6 +49,7 @@ require("mini.pairs").setup()
 
 require("oil").setup({
 	skip_confirm_for_simple_edits = true,
+	default_file_explorer = true,
 	columns = { "icon", "size" },
 	view_options = {
 		show_hidden = true,
@@ -69,7 +70,7 @@ vim.keymap.set("n", "<leader>ps", function()
 	require("fzf-lua").live_grep()
 end)
 
-vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
+vim.keymap.set("n", "<leader>pv", "<CMD>Oil --float<CR>")
 
 require("mini.diff").setup({
 	view = {
