@@ -23,6 +23,7 @@
         obs-studio
         inkscape
         pixelorama
+        aseprite
       ];
     })
   ];
