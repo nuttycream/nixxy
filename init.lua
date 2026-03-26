@@ -125,6 +125,7 @@ vim.lsp.config("rust_analyzer", {
 vim.lsp.enable({
 	"nixd",
 	"rust_analyzer",
+	"typst",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -150,6 +151,7 @@ require("conform").setup({
 	},
 	formatters_by_ft = {
 		lua = { "stylua" },
+		typst = { "typstyle" },
 		nix = { "alejandra" },
 		rust = { "rustfmt" },
 		markdown = { "prettierd" },

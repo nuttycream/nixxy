@@ -18,12 +18,14 @@
           # lsp
           nixd
           rust-analyzer
+          typst
 
           #formatters
           stylua
           rustfmt
           alejandra
           prettierd
+          typstyle
         ];
       };
     })
