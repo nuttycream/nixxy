@@ -24,6 +24,7 @@
         inkscape
         pixelorama
         aseprite
+        steam
       ];
     })
   ];
