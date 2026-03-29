@@ -37,15 +37,19 @@ require("cyberdream").setup({
 })
 vim.cmd("colorscheme cyberdream")
 
-vim.api.nvim_set_hl(0, "Pmenu", {
-	bg = "#16181a",
-	fg = "#ffffff",
-})
-
 require("mini.icons").setup()
 require("mini.indentscope").setup()
-
 require("mini.pairs").setup()
+require("mini.diff").setup({
+	view = {
+		style = "sign",
+		signs = {
+			add = "+",
+			change = "~",
+			delete = "-",
+		},
+	},
+})
 
 require("oil").setup({
 	skip_confirm_for_simple_edits = true,
@@ -72,35 +76,17 @@ end)
 
 vim.keymap.set("n", "<leader>pv", "<CMD>Oil --float<CR>")
 
-require("mini.diff").setup({
-	view = {
-		style = "sign",
-		signs = {
-			add = "+",
-			change = "~",
-			delete = "-",
-		},
+require("blink.cmp").setup({
+	keymap = {
+		preset = "none",
+		["<CR>"] = { "accept", "fallback" },
+		["<Tab>"] = { "select_next", "fallback" },
+		["<S-Tab>"] = { "select_prev", "fallback" },
+	},
+	completion = {
+		accept = { auto_brackets = { enabled = true } },
 	},
 })
-
-require("mini.completion").setup({
-	lsp_completion = {
-		source_func = "completefunc",
-		auto_setup = true,
-	},
-})
-
-vim.keymap.set("i", "<CR>", function()
-	return vim.fn.pumvisible() == 1 and "<C-y>" or "<CR>"
-end, { expr = true })
-
-vim.keymap.set("i", "<Tab>", function()
-	return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
-end, { expr = true })
-
-vim.keymap.set("i", "<S-Tab>", function()
-	return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
-end, { expr = true })
 
 vim.lsp.config("*", {
 	root_markers = { ".git" },

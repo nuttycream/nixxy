@@ -10,6 +10,7 @@
           nvim-treesitter.withAllGrammars
           conform-nvim
           mini-nvim
+          blink-cmp
           oil-nvim
           fzf-lua
         ];
