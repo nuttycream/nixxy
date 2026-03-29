@@ -24,7 +24,8 @@
           };
         };
 
-        users.defaultUserShell = pkgs.nushell;
+        programs.zsh.enable = true;
+        users.defaultUserShell = pkgs.zsh;
       }
     )
   ];
@@ -32,8 +33,28 @@
   personal.home_modules = [
     (
       {...}: {
-        programs.nushell = {
+        programs.zsh = {
           enable = true;
+          enableCompletion = true;
+          autosuggestion.enable = true;
+          syntaxHighlighting.enable = true;
+          shellAliases = {
+            j = "just";
+            g = "git";
+            l = "ls -la";
+            t = "tmux new-session -A -s main";
+            ts = "tms switch";
+            ff = "fastfetch";
+            fg = "job unfreeze";
+            bg = "job spawn";
+            fit = "nix flake init -t github:akirak/flake-templates#minimal";
+            fi = "nix flake init";
+            c = "cargo";
+          };
+        };
+
+        programs.nushell = {
+          enable = false;
           shellAliases = {
             j = "just";
             g = "git";
