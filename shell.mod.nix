@@ -12,7 +12,6 @@
       {pkgs, ...}: {
         environment.systemPackages = [
           pkgs.nix-output-monitor
-          pkgs.nvd
           pkgs.fish
           gai.packages.${pkgs.system}.default
           pkgs.openssl
@@ -21,7 +20,6 @@
         programs.nixos-cli = {
           enable = true;
           settings = {
-            use_nvd = true;
             apply.use_nom = true;
           };
         };
