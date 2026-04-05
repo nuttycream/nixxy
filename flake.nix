@@ -19,6 +19,11 @@
 
     nixos-cli.url = "github:nix-community/nixos-cli/main";
     gai.url = "github:cube-cult/gai/main";
+
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -66,7 +71,7 @@
         )
         all_modules;
 
-      raw_configs = builtins.removeAttrs raw_configs' ["extras"];
+      raw_configs = removeAttrs raw_configs' ["extras"];
       extras = raw_configs'.extras or {};
 
       configs =
