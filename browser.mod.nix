@@ -1,10 +1,11 @@
-{...}: {
+{zen-browser, ...}: {
   # get the nightly version
   personal.modules = [
     ({pkgs, ...}: {
       environment.systemPackages = [
         #firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
         pkgs.chromium
+        zen-browser.packages.${pkgs.system}.default
       ];
     })
   ];
