@@ -5,7 +5,6 @@
         nautilus
         zathura
         #vesktop
-        legcord
         pandoc
         yazi
         slack
