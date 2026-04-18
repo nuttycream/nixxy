@@ -20,6 +20,7 @@
           nixd
           rust-analyzer
           typst
+          gopls
 
           #formatters
           stylua

@@ -97,6 +97,19 @@ vim.lsp.config("nixd", {
 	filetypes = { "nix" },
 })
 
+vim.lsp.config("gopls", {
+	cmd = { "gopls" },
+	filetypes = { "go" },
+	settings = {
+		gopls = {
+			analyses = {
+				unusedparams = true,
+			},
+			staticcheck = true,
+		},
+	},
+})
+
 vim.lsp.config("rust_analyzer", {
 	cmd = { "rust-analyzer" },
 	filetypes = { "rust" },
@@ -112,6 +125,7 @@ vim.lsp.enable({
 	"nixd",
 	"rust_analyzer",
 	"typst",
+	"gopls",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
