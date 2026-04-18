@@ -24,6 +24,7 @@
         pixelorama
         aseprite
         steam
+        godot
       ];
     })
   ];
