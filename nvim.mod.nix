@@ -21,6 +21,7 @@
           rust-analyzer
           typst
           gopls
+          vscode-langservers-extracted
 
           #formatters
           stylua
