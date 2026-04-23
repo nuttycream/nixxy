@@ -121,11 +121,18 @@ vim.lsp.config("rust_analyzer", {
 	},
 })
 
+vim.lsp.config("html", {
+	cmd = { "vscode-html-language-server", "--stdio" },
+	filetypes = { "html" },
+	settings = {},
+})
+
 vim.lsp.enable({
 	"nixd",
 	"rust_analyzer",
 	"typst",
 	"gopls",
+	"html",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -155,5 +162,6 @@ require("conform").setup({
 		nix = { "alejandra" },
 		rust = { "rustfmt" },
 		markdown = { "prettierd" },
+		html = { "prettierd" },
 	},
 })
