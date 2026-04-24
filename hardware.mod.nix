@@ -88,6 +88,7 @@ in
 
         boot.binfmt.emulatedSystems = ["aarch64-linux"];
         boot.kernelParams = [
+          "amdgpu.runpm=0"
           #"amd_iommu=on"
         ];
       }
