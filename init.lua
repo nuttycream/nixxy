@@ -135,10 +135,20 @@ vim.lsp.config("cssls", {
 	},
 })
 
+vim.lsp.config("tinymist", {
+	cmd = { "tinymist" },
+	filetypes = { "typst" },
+	root_markers = { ".git", "typst.toml" },
+	single_file_support = true,
+	settings = {
+		formatterMode = "typstyle",
+	},
+})
+
 vim.lsp.enable({
 	"nixd",
 	"rust_analyzer",
-	"typst",
+	"tinymist",
 	"gopls",
 	"html",
 	"cssls",
@@ -167,7 +177,6 @@ require("conform").setup({
 	},
 	formatters_by_ft = {
 		lua = { "stylua" },
-		typst = { "typstyle" },
 		nix = { "alejandra" },
 		rust = { "rustfmt" },
 		markdown = { "prettierd" },

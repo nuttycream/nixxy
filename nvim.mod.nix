@@ -21,7 +21,7 @@
           # lsp
           nixd
           rust-analyzer
-          typst
+          tinymist
           gopls
           vscode-langservers-extracted
 
@@ -30,7 +30,6 @@
           rustfmt
           alejandra
           prettierd
-          typstyle
           djlint
         ];
       };
