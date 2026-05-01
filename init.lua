@@ -123,8 +123,16 @@ vim.lsp.config("rust_analyzer", {
 
 vim.lsp.config("html", {
 	cmd = { "vscode-html-language-server", "--stdio" },
-	filetypes = { "html" },
+	filetypes = { "html", "htmldjango" },
 	settings = {},
+})
+
+vim.lsp.config("cssls", {
+	cmd = { "vscode-css-language-server", "--stdio" },
+	filetypes = { "css" },
+	settings = {
+		css = { validate = true },
+	},
 })
 
 vim.lsp.enable({
@@ -133,6 +141,7 @@ vim.lsp.enable({
 	"typst",
 	"gopls",
 	"html",
+	"cssls",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -163,5 +172,6 @@ require("conform").setup({
 		rust = { "rustfmt" },
 		markdown = { "prettierd" },
 		html = { "prettierd" },
+		htmldjango = { "djlint" },
 	},
 })

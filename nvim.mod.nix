@@ -5,6 +5,8 @@
       programs.neovim = {
         enable = true;
         defaultEditor = true;
+        withRuby = false;
+        withPython3 = false;
         plugins = with pkgs.vimPlugins; [
           cyberdream-nvim
           nvim-treesitter.withAllGrammars
@@ -29,6 +31,7 @@
           alejandra
           prettierd
           typstyle
+          djlint
         ];
       };
     })
