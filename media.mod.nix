@@ -3,9 +3,10 @@
     ({pkgs, ...}: {
       home.packages = with pkgs; [
         #ffmpeg-full
-        yt-dlp
-        mpv
+        #yt-dlp
+        #mpv
         vlc
+        easyeffects
       ];
     })
   ];
