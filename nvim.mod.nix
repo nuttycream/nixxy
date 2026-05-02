@@ -2,6 +2,7 @@
   personal.home_modules = [
     ({pkgs, ...}: {
       xdg.configFile."nvim/init.lua".source = ./init.lua;
+      xdg.configFile."nvim/after/ftplugin/rust.lua".source = ./rust.lua;
       programs.neovim = {
         enable = true;
         defaultEditor = true;
@@ -15,6 +16,7 @@
           blink-cmp
           oil-nvim
           fzf-lua
+          rustaceanvim
         ];
 
         extraPackages = with pkgs; [
@@ -30,7 +32,6 @@
           rustfmt
           alejandra
           prettierd
-          djlint
         ];
       };
     })

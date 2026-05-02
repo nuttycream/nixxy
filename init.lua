@@ -110,16 +110,20 @@ vim.lsp.config("gopls", {
 	},
 })
 
-vim.lsp.config("rust_analyzer", {
-	cmd = { "rust-analyzer" },
-	filetypes = { "rust" },
-	settings = {
-		["rust-analyzer"] = {
-			cargo = { allFeatures = true },
-			checkOnSave = true,
+vim.g.rustaceanvim = {
+	server = {
+		default_settings = {
+			["rust-analyzer"] = {
+				cargo = { allFeatures = true },
+				check = {
+					command = "clippy",
+					extraArgs = { "--no-deps" },
+				},
+				checkOnSave = true,
+			},
 		},
 	},
-})
+}
 
 vim.lsp.config("html", {
 	cmd = { "vscode-html-language-server", "--stdio" },
@@ -181,6 +185,7 @@ require("conform").setup({
 		rust = { "rustfmt" },
 		markdown = { "prettierd" },
 		html = { "prettierd" },
-		htmldjango = { "djlint" },
+		htmldjango = { "prettierd" },
+		css = { "prettierd" },
 	},
 })
