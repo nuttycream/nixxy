@@ -3,7 +3,8 @@
     {
       programs.eww = {
         enable = true;
-        configDir = ./eww;
+        yuckConfig = builtins.readFile ./eww/eww.yuck;
+        scssConfig = builtins.readFile ./eww/eww.scss;
       };
     }
   ];
