@@ -4,14 +4,14 @@
     ({pkgs, ...}: {
       programs.niri.enable = true;
       nixpkgs.overlays = [niri.overlays.niri];
-      programs.niri.package = pkgs.niri-stable;
+      programs.niri.package = pkgs.niri-unstable;
       services.gnome.gnome-keyring.enable = true;
       environment.variables.NIXOS_OZONE_WL = "1";
       environment.systemPackages = with pkgs; [
         wl-clipboard
         wayland-utils
         cage
-        swaybg
+        #swaybg
         xwayland-satellite
         grim
         swaylock
@@ -210,10 +210,10 @@
           # manual edid workaround didn't work around....
           mode.width = 3840;
           mode.height = 2160;
-          mode.refresh = 120.0;
+          mode.refresh = 239.914;
           #mode.refresh = 120.0;
           scale = 1.8;
-          background-color = "#000000";
+          layout.background-color = "#000000";
           position.x = 1280;
           position.y = 0;
         };
