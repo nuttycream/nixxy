@@ -63,7 +63,7 @@ in
     # main desktop
     (config "desky" "x86_64-linux" [
       (cpu "amd")
-      (fs.ext4 "/" "/dev/disk/by-uuid/c2b3d64e-999f-4437-b16a-8703bb15c025" null)
+      (fs.ext4 "/" "/dev/disk/by-uuid/bb42b23a-7397-4002-95c2-5cf37b9eea93" null)
       (fs.vfat "/boot" "/dev/disk/by-uuid/C762-A077" ["fmask=0077" "dmask=0077"])
       {
         boot.loader.grub = {
@@ -97,7 +97,7 @@ in
     (config "lappy" "x86_64-linux" [
       (cpu "amd")
       (fs.ext4 "/" "/dev/disk/by-uuid/529a5f7b-6d83-4a08-b950-365153f6f523" null)
-      (fs.vfat "/boot" "/dev/disk/by-uuid/CB28-ADA4" ["fmask=0077" "dmask=0077"])
+      (fs.vfat "/boot" "/dev/disk/by-uuid/C762-A077" ["fmask=0077" "dmask=0077"])
       {
         boot.loader.systemd-boot.enable = true;
 
