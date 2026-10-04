@@ -18,7 +18,7 @@
     };
 
     nixos-cli.url = "github:nix-community/nixos-cli/main";
-    gai.url = "github:cube-cult/gai/main";
+    # gai.url = "github:cube-cult/gai/main";
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
