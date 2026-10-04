@@ -204,14 +204,13 @@
     {
       programs.niri.settings = {
         # g80sd on dp
-        outputs."DP-2" = {
+        outputs."DP-1" = {
           # even though the g80sd is a 240hz 4k monitor
           # im fucking locked at 120
           # manual edid workaround didn't work around....
           mode.width = 3840;
           mode.height = 2160;
           mode.refresh = 239.914;
-          #mode.refresh = 120.0;
           scale = 1.8;
           layout.background-color = "#000000";
           position.x = 1280;
