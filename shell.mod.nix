@@ -1,8 +1,4 @@
-{
-  nixos-cli,
-  gai,
-  ...
-}: {
+{nixos-cli, ...}: {
   universal.modules = [
     nixos-cli.nixosModules.nixos-cli
   ];
@@ -13,7 +9,6 @@
         environment.systemPackages = [
           pkgs.nix-output-monitor
           pkgs.fish
-          gai.packages.${pkgs.system}.default
           pkgs.openssl
         ];
 
@@ -135,7 +130,7 @@
         };
 
         programs.starship = {
-          enable = true;
+          enable = false;
           settings = {
             # "$schema" = "https://starship.rs/config-schema.json";
 
