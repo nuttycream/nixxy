@@ -67,11 +67,13 @@ in
       (fs.vfat "/boot" "/dev/disk/by-uuid/C762-A077" ["fmask=0077" "dmask=0077"])
       {
         boot.loader.grub = {
-          enable = true;
+          enable = false;
           devices = ["nodev"];
           useOSProber = true;
           efiSupport = true;
         };
+
+        boot.loader.systemd-boot.enable = true;
 
         boot.initrd.availableKernelModules = [
           "nvme"
