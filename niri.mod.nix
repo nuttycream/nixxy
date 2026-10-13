@@ -239,7 +239,7 @@
           mode.height = 1504;
           mode.refresh = 60.0;
           scale = 1.5;
-          background-color = "#000000";
+          layout.background-color = "#000000";
           position.x = 1280;
           position.y = 0;
         };
@@ -248,7 +248,7 @@
           mode.height = 1080;
           mode.refresh = 100.0;
           scale = 1.1;
-          background-color = "#000000";
+          layout.background-color = "#000000";
           position.x = 1280;
           position.y = -1080;
         };
