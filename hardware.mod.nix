@@ -98,8 +98,8 @@ in
     # framework 13in amd 7040
     (config "lappy" "x86_64-linux" [
       (cpu "amd")
-      (fs.ext4 "/" "/dev/disk/by-uuid/529a5f7b-6d83-4a08-b950-365153f6f523" null)
-      (fs.vfat "/boot" "/dev/disk/by-uuid/C762-A077" ["fmask=0077" "dmask=0077"])
+      (fs.ext4 "/" "/dev/disk/by-uuid/8a1d8ce4-dd53-4102-adc3-47dfb7e862ae" null)
+      (fs.vfat "/boot" "/dev/disk/by-uuid/343D-3398" ["fmask=0077" "dmask=0077"])
       {
         boot.loader.systemd-boot.enable = true;
 
@@ -117,10 +117,10 @@ in
 
         # temp amd input lag fix framework 13
         # https://community.frame.work/t/keyboard-is-laggy-on-linux-6-12-only/61736/5
-        boot.kernelParams = [
-          "amdgpu.dcdebugmask=0x10"
-        ];
+        # boot.kernelParams = [
+          # "amdgpu.dcdebugmask=0x10"
+        # ];
       }
-      # nixos-hardware.nixosModules.framework-13-7040-amd
+      nixos-hardware.nixosModules.framework-13-7040-amd
     ])
   ]
