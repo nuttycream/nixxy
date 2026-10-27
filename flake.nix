@@ -7,6 +7,11 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
+		nixos-wsl = {
+			url = "github:nix-community/NixOS-WSL/main";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

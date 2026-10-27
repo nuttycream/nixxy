@@ -30,7 +30,7 @@
   cpu = brand: {hardware.cpu.${brand}.updateMicrocode = true;};
 in
   {
-    universal.modules = [
+    metal.modules = [
       ({lib, ...}: {
         networking.useDHCP = lib.mkDefault true;
         time.hardwareClockInLocalTime = true;

@@ -3,7 +3,7 @@
     nixos-cli.nixosModules.nixos-cli
   ];
 
-  personal.modules = [
+  cli.modules = [
     (
       {pkgs, ...}: {
         environment.systemPackages = [
@@ -25,7 +25,7 @@
     )
   ];
 
-  personal.home_modules = [
+  cli.home_modules = [
     (
       {...}: {
         programs.zsh = {

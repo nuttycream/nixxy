@@ -1,5 +1,5 @@
 {...}: {
-  personal.home_modules = [
+  cli.home_modules = [
     ({pkgs, ...}: {
       xdg.configFile."nvim/init.lua".source = ./init.lua;
       xdg.configFile."nvim/after/ftplugin/rust.lua".source = ./rust.lua;

@@ -1,5 +1,5 @@
 {...}: {
-  personal.home_modules = [
+  cli.home_modules = [
     ({...}: {
       programs.lazygit = {
         enable = true;

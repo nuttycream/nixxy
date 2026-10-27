@@ -1,5 +1,5 @@
 {...}: {
-  universal.modules = [
+  metal.modules = [
     ({...}: {
       networking.networkmanager = {
         enable = true;
