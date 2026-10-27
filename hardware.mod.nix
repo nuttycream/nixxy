@@ -118,9 +118,9 @@ in
         # temp amd input lag fix framework 13
         # https://community.frame.work/t/keyboard-is-laggy-on-linux-6-12-only/61736/5
         # boot.kernelParams = [
-          # "amdgpu.dcdebugmask=0x10"
+        # "amdgpu.dcdebugmask=0x10"
         # ];
       }
-      nixos-hardware.nixosModules.framework-13-7040-amd
+      # nixos-hardware.nixosModules.framework-13-7040-amd
     ])
   ]
